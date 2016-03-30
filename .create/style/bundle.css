@@ -1135,7 +1135,8 @@ a:visited{
 }
 
 body > .container-fluid.main{
-    min-height: 100%;    
+    min-height: 100%;    	
+	background:url('../images/back-top.jpg') no-repeat center top;
 }
 
 p{
@@ -1144,7 +1145,7 @@ p{
 
 /*nav*/
 nav{
-    background-color: none;
+	background:url('../images/back-top.jpg') no-repeat center top;	
 }
 .navbar-nav{ text-align: center; float: none;}
 .navbar-nav>li{ display: inline-block; float: none;}
@@ -1202,8 +1203,9 @@ nav{
 
 header{
 	min-height: 680px;
-	background:url('../images/back-top.jpg');
 	padding-top: 91px;
+	position: relative;
+	z-index: 50;
 }
 
 
@@ -1262,4 +1264,46 @@ header .main-block{
 .video-sistem .image{
 	height: 95px;
 	text-align: center;
+}
+
+
+.our-projects{
+	width: 286px;
+	height: 180px;
+	border: 2px solid #51cef7;
+	border-radius: 8px;
+	float: right;
+	text-align: center;
+}
+.our-projects .title-small{
+	line-height: 50px;
+	margin: 0 0 5px 0;
+	color: white;
+	font-size: 18px;
+	font-family: OpenSans-Bold;
+}
+.our-projects span{ display: block;
+	text-align: center;
+}
+.our-projects p{
+	font-family: OpenSans-Regular;
+	color: white;
+}
+.our-projects .image{	
+	min-height: 52px;
+	margin-bottom: 17px;
+}
+
+.slide2{
+	margin-top: -248px;
+	padding-top: 115px;
+	min-height: 1033px;
+	position: relative;
+	z-index: 50;
+}
+
+.text16{
+	font-family: OpenSans-Regular;
+	color: white;
+	font-size: 16px;
 }

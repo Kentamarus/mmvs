@@ -4,20 +4,41 @@ $(function(){
 });
 
 var Site = new function () {
-	 this.parseUrl = function() {
-        switch (location.hash) {
-        case "#callAnswer":
-            $.magnificPopup.open({
-                items: {
-                    src: "#callAnswer"
-                },
-                type: "inline"
-            }, 0)
-        }
-    }
+//	 this.parseUrl = function() {
+//        switch (location.hash) {
+//        case "#callAnswer":
+//            $.magnificPopup.open({
+//                items: {
+//                    src: "#callAnswer"
+//                },
+//                type: "inline"
+//            }, 0)
+//        }
+//    },
+	 this.sliderOrganization = function(){
+		var show_count = 5;
+        if ($("body").width() > 1024) { show_count = 5; } 
+        else if ($("body").width() > 768)  { show_count = 3;}
+        else if ($("body").width() > 639)  { show_count = 2;}
+        else show_count = 1;
+        
+//        $('.multiple-items').slick({
+//            infinite: true,
+//            dots: false,
+//            slidesToShow: show_count,
+//            slidesToScroll: show_count,
+//        }); 
+		  $('.multiple-items').slick(
+			{
+				dots: false,
+				infinite: true,
+				speed: 300,
+				slidesToShow: show_count				
+			});
+	 },
     this.init = function(){
 		this.parseUrl();
-        
+        this.sliderOrganization();
         $(".navbar-toggle").bind("click", function(e){
             e.preventDefault();
             var obj = $(this).closest(".container").find("#navbar");
