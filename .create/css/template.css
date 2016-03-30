@@ -1,0 +1,86 @@
+
+/*global*/
+
+.clear-padding{padding: 0!important;}
+.clear-margin{ margin: 0!important; }
+.ul-left li{ float: left; padding: 0; margin: 0;}
+.a-none{ text-decoration: none!important;}
+.uppercase{ text-transform: uppercase;}
+.underline{ text-decoration: underline;}
+
+a.underline{ text-decoration: underline;}
+a.underline:hover{ text-decoration: none;}
+.pad-bot30{ padding-bottom: 30px!important;}
+.margin-right15{ margin-right: -15px;}
+.relative{ position: relative;}
+ul li{ list-style: none;}
+.absolute{ position: absolute;}
+html{
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+html *{
+ max-height:1000000px;
+ outline: none!important;
+}
+.overfow-hidden{ overflow: hidden;}
+div{ margin: 0 auto;}
+.ul-form li{ padding-bottom: 10px;}
+
+/*global========*/
+
+
+
+/* Bootstrap modal windwow is center*/
+
+.modal {text-align: center;}
+
+@media screen and (min-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+/* Bootstrap modal windwow is center============*/
+
+
+.img-center-vertical {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: block;
+    transform: translate(-50%,-50%);
+}
+
+.div-table{ display: table!important; width:100%;}
+.div-table-cell{ 
+    display: table-cell!important;
+    vertical-align: middle;
+	text-align:center;
+}
+.content{ position: relative; z-index: 15;}
+.full{ width: 100%!important;}
+.full-max{ max-width: 100%!important;}
+
+
+.section{
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+.ico{
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+h1,
+p{ 
+	margin: auto;
+}

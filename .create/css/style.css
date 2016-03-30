@@ -1,0 +1,146 @@
+
+html,
+body{
+    height: 100%;
+    display: block;    
+}
+body {
+    background:#f5f5f5;
+}
+
+a:link,
+a:visited{
+    color: #546A67;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body > .container-fluid.main{
+    min-height: 100%;    
+}
+
+p{
+	font-size: 16px;
+}
+
+/*nav*/
+nav{
+    background-color: none;
+}
+.navbar-nav{ text-align: center; float: none;}
+.navbar-nav>li{ display: inline-block; float: none;}
+.navbar-nav>li>a{
+    font-family: OpenSans-Bold;
+    display: inline-block;
+    font-size: 16px;
+    color: white;
+	text-transform: uppercase;
+    text-align: center;
+    line-height: 90px;   
+	padding: 0 30px;
+}
+.nav>li>a:focus,
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: transparent;
+	color: #10b8f4;
+}
+.navbar-collapse{ height: 52px;}
+/*nav===========*/
+
+
+.cd-top {
+    display: block;
+    margin: 0 auto;
+    height: 57px;
+    width:116px;   
+    background: url(../images/up-top.png) no-repeat;    
+    opacity: 1;    
+}
+.cd-top:hover{
+    background-position: left bottom;
+}
+
+.cd-top.cd-is-visible {
+  visibility: visible;
+  opacity: 1;
+}
+.cd-top.cd-fade-out {
+  opacity: .5;
+}
+
+.navbar{
+    min-height: 91px;    
+	border-bottom: 1px solid #41474d;
+}
+
+.navbar-brand{
+	width: 162px;
+	height: 91px;
+	background: url('../images/logotype.png') no-repeat;
+	margin: 0 0 0 15px!important;
+}
+
+header{
+	min-height: 680px;
+	background:url('../images/back-top.jpg');
+	padding-top: 91px;
+}
+
+
+.will-call{
+	float: right;
+	margin-top: -70px;
+}
+.will-call p{ margin-bottom: 0;}
+.will-call p.ico a{
+	font-size: 16px;
+	color: #10b8f4;
+	font-family: OpenSans-Regular;
+}
+.will-call p.phone{
+	font-size: 18px;
+	color: white;
+	font-family: GothamProRegular;
+}
+.will-call p.phone span{
+	color: #10b8f4;
+	font-family: GothamProBlack;
+}
+
+
+.ico-phone{
+	background-image: url(../images/icons/phone.png);
+	padding-left: 32px;
+}
+
+header .title{
+	font-size: 32px;
+	color: white;
+	font-family: IntroRegular;
+}
+header .title span{ font-size: 60px; display: block;}
+header .main-block{
+	padding-top: 70px;
+	float: right;
+}
+
+.video-sistem{ padding-top: 30px;}
+.video-sistem .item-col{
+	width: 160px;
+	height: 150px;
+	text-align: center;
+	border-radius: 10px;
+	padding: 0;
+}
+.video-sistem .item-col:hover{
+	background-image: url('../images/space.png');		
+}
+.video-sistem p{
+	color: white;
+	font-family: OpenSans-Regular;
+}
+.video-sistem .image{
+	height: 95px;
+	text-align: center;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+        <title>Template</title>        
+        <meta name="description" content="">        
+        <meta name="keywords" content="">        
+    
+        <link rel="icon" href="images/favicon.png">            
+        <link rel="stylesheet" type="text/css" href="style/bundle.css">      
+    </head>
+<body>
+    
+    <div class="container-fluid main">                                       
+                     
+	  <div class="modal fade" id="callForm" tabindex="-1" role="dialog" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content call-answer">                   
+				<a href="javascript:void(0)" class="btn-close" data-target="#callForm" ></a>                                                                 
+				 <div class="thanks">                    
+					<div class="title uppercase cRed">
+						Спасибо!
+					</div>
+					<p>Ваша заявка отправлена</p>
+					<p>Мы скоро с вами свяжемся</p>
+				</div>
+			</div>                                                  
+		  </div>   
+	  </div>  
+		  
+	<div id="mm-1" class="mm-page">
+		<div class="hidden">
+			<div class="popup-form pop-up call-answer order zoom-anim-dialog " id="callAnswer" >
+				<div class="block-base-windows overfow-hidden">
+					<div class="block-before overfow-hidden">                                                                                                   
+						<div class="title">
+							<p>
+								<span class="fontBold btn-block">Оставьте заявку</span>                                        
+								<i>чтобы сделать заказ или получить бесплатную консультацию</i>
+							</p>
+						</div>                               
+						<form class="call-back-form">
+							<input type="hidden" class="subject" name="subject">
+							<ul class="ul-form">
+								<li>
+									<input type="text" class="people text-empty" required="" name="people" placeholder="Ваше имя ">
+								</li>
+								<li>          							
+									<input type="tel" class="phone text-empty" required="" name="phone" placeholder="Ваш телефон">
+								</li>
+							</ul>
+							<button type="submit" class="btn btn-primary" data-successful>Оставить заявку</button>    
+						</form>                        
+					</div>                                                
+					<div class="thanks">                    
+						<div class="title">
+							<span class="fontBold btn-block">Спасибо за заявку!</span>                                                                                          
+						</div>
+						<p>Мы свяжемся с Вами</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+                     
+       <nav class="navbar navbar-fixed-top">
+		   <div class="container">
+			<div class="clearfix">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html">
+						
+					</a>
+			  </div>
+			  <div id="navbar" class="navbar-collapse collapse">
+				  <ul class="nav navbar-nav">
+					<li><a href="" data-rel='m_PageScroll2id'>Главная</a></li>      
+					<li><a href="" data-rel='m_PageScroll2id'>О компании</a></li>                                                      
+					<li><a href="" data-rel='m_PageScroll2id'>Предложения</a></li>                                                      
+					<li><a href="" data-rel='m_PageScroll2id'>Контакты</a></li>                                                      
+				</ul>                                
+			   <div class="will-call">                       
+				   <p class="phone">+7 (343) 288-51-90</p>
+				   <p class="ico-phone ico"><a href="#callAnswer" data-effect="mfp-move-horizontal"  class="call">Перезвонить вам?</a></p>
+			   </div>
+			  </div>                                                        
+			</div>                                               
+	   </div>                   
+</nav>         
+       <header class="row section">
+       		 <div class="container clearfix">
+				<div class="col-sm-6 item-col main-block">
+					<h1 class="title">Разработка и внедрение <span>видеосистем</span></h1>
+					<div class="clearfix video-sistem">
+						<div class="col-sm-4 item-col">
+							<span class="image div-table"><span class="div-table-cell"><img src="images/icons/sys1.png" alt=""></span></span>
+							<p>Организация онлайн-трансляций</p>
+						</div>
+						<div class="col-sm-4 item-col">
+							<span class="image div-table"><span class="div-table-cell"><img src="images/icons/sys2.png" alt=""></span></span>
+							<p>Оборудование для видеовещания</p>
+						</div>
+						<div class="col-sm-4 item-col">
+							<span class="image div-table"><span class="div-table-cell"><img src="images/icons/sys3.png" alt=""></span></span>
+							<p>Монетизация видеопотока</p>
+						</div>
+					</div>
+				</div>
+            </div>
+       </header>
+        
+        <section class="row">
+            <div class="container">
+                <h1></h1>
+            </div>
+        </section>
+        
+<!--
+        <section class="row">
+            <div class="container">
+                <h1></h1>
+            </div>
+        </section>
+-->
+        
+          
+        <footer class="row">
+               <div class="container">                    
+                   <a class="navbar-brand" href="index.html"></a>
+               </div>
+        </footer>  
+</div>          
+
+        <script src="libraries/jquery.min.js"></script>        
+        <script src="libraries/jquery.maskedinput.min.js"></script>
+        <script src="libraries/jquery.magnific-popup.min.js"></script>
+        <script src="libraries/bootstrap.min.js"></script>
+        <script src="libraries/jquery.validate.min.js"></script>        
+        
+        <script src="scripts/scripts.js"></script>                            
+</body>
+</html>

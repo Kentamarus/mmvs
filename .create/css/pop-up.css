@@ -1,0 +1,107 @@
+.pop-up {
+    max-width: 340px;
+    height: 315px;
+    margin: 0 auto;
+    padding: 35px 30px 0;
+/*    background-image: url(../images/form.jpg);*/
+    background-color: #fff;
+    background-repeat: no-repeat;
+    position: relative
+}
+
+.pop-up .title {
+    color: #323232;
+    margin: 0;
+    text-transform: none
+}
+
+.pop-up.title span {
+    font-size: 22px;
+    color: #0166b0;
+    font-family: IntroRegular;
+    display: block
+}
+
+.pop-up .title i {
+    font-size: 22px;
+    color: #333;
+    font-family: LatoRegular;
+    font-style: normal;
+    display: block
+}
+
+.pop-up .ul-form {
+    margin-top: 20px;
+    padding: 0;
+    margin-bottom: 0
+}
+
+.pop-up.text-empty {
+    font-size: 16px;
+    font-family: LatoLight;
+    color: #333;
+    text-align: left;
+    padding-left: 54px;
+    background-color: #ccc;
+    border-color: #bababa
+}
+
+.pop-up .block-base-windows {
+    height: 295px
+}
+
+.pop-up .ico {
+    background-position: 20px center
+}
+
+.pop-up form {
+    padding-bottom: 3px
+}
+
+.pop-up .ul-form li {
+    padding-bottom: 28px
+}
+
+.thanks {
+    padding-top: 90px
+}
+
+.small-window {
+	border-bottom: 19px solid #cf3d40;
+}
+
+.small-window .thanks{
+	padding-top: 44px!important;
+}
+
+.thanks .title{
+	line-height: 55px;
+    font-size: 20px;
+    color: #4f4f4f;
+    font-family: DINPro-Black;
+    display: block;
+    padding-bottom: 20px
+}
+
+.thanks p {
+    text-align: center;
+    color: #5e5e5e;
+    margin: 0
+}
+
+.btn-close, 
+button.mfp-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 38px!important;
+    height: 38px!important;
+    background: url(../images/icons/close.png) no-repeat;
+    font-size: 0;
+}
+
+.call-answer.small-window {
+    width: 100%;
+	max-width: 470px;
+	min-height: 234px
+}
