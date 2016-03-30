@@ -67,6 +67,12 @@ div{ margin: 0 auto;}
 	text-align:center;
 }
 .content{ position: relative; z-index: 15;}
+
+.rel,
+.relative{
+	position: relative;
+}
+
 .full{ width: 100%!important;}
 .full-max{ max-width: 100%!important;}
 

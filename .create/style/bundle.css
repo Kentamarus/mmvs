@@ -973,6 +973,12 @@ div{ margin: 0 auto;}
 	text-align:center;
 }
 .content{ position: relative; z-index: 15;}
+
+.rel,
+.relative{
+	position: relative;
+}
+
 .full{ width: 100%!important;}
 .full-max{ max-width: 100%!important;}
 
@@ -1141,6 +1147,8 @@ body > .container-fluid.main{
 
 p{
 	font-size: 16px;
+	font-family: OpenSans-Regular;
+	color: white;
 }
 
 /*nav*/
@@ -1306,4 +1314,35 @@ header .main-block{
 	font-family: OpenSans-Regular;
 	color: white;
 	font-size: 16px;
+}
+
+.detail{
+	position: absolute;	
+	right: 323px;
+	top: 0;
+	width: 150px;
+	height: 40px;
+	display: block;	
+	background: url('../images/arrow1.png') no-repeat center bottom;
+}
+
+.aboutCompany{
+	padding-left: 110px;
+}
+.aboutCompany .title{
+	color: #d2f1ff;
+	font-size: 24px;
+	line-height: 40px;
+	font-family: OpenSans-Light;
+	text-transform: uppercase;
+}
+.aboutCompany .block{ margin-bottom: 40px;}
+.aboutCompany .block .title{
+	color: white;
+	font-size: 32px;
+	line-height: 90px;
+	font-family: IntroRegular;
+}
+.aboutCompany .block p{
+	font-size: 18px;
 }
