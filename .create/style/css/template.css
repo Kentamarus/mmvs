@@ -80,6 +80,7 @@ div{ margin: 0 auto;}
 .section{
 	background-repeat: no-repeat;
 	background-position: center top;
+	position: relative;
 }
 .ico{
 	background-repeat: no-repeat;

@@ -7,12 +7,38 @@ var gulp = require('gulp'),
     gulpSequence = require('gulp-sequence'),
     browserSync = require("browser-sync"),    
 	sass = require('gulp-sass'),
+	less = require('gulp-less'),
+	rename = require('rename'),
 	//fontgen = require('gulp-fontgen'),
+	autoprefixer = require('gulp-autoprefixer'),
     reload = browserSync.reload;
     
 
 var concatConfig = {
     file: 'bundle.css'
+};
+var globalPath = {
+	production: './.production',
+	create: './.create/'
+};
+
+var styleConfig = {
+    optimized: {
+		out: 'bundle.css',
+		path: globalPath.create+'style/optimized/'
+	},
+	css: {
+		files: globalPath.create+"style/css/",
+		out: "common-css.css"
+	},
+	less: {
+		files: globalPath.create+"style/less/",
+		out: "common-less.css"
+	},
+	sass: {
+		files: globalPath.create+"style/sass/",
+		out: "common-sass.css"
+	}
 }
 
 var config = {
@@ -33,20 +59,20 @@ var file ={
         './bower_components/jquery-ui/jquery-ui.min.js'
     ],
     css: [
-            './.create/css/normalize.css',
+            styleConfig.css.files+'normalize.css',
             './bower_components/bootstrap/dist/css/bootstrap.min.css',
-            './bower_components/jquery-ui/themes/start/jquery-ui.min.css',            
-            './.create/css/magnific-popup.css',
-            './.create/css/jquery.fancybox.css',
-            './.create/css/fonts.css',
-            './.create/css/template.css',
-            './.create/css/slick.css',
-            './.create/css/pop-up.css',
-            './.create/css/style.css',
-            './.create/css/media.css']    
+            '',            
+            styleConfig.css.files+'magnific-popup.css',
+            '',
+            styleConfig.css.files+'fonts.css',
+            styleConfig.css.files+'template.css',
+            styleConfig.css.files+'slick.css',
+            styleConfig.css.files+'pop-up.css',
+            styleConfig.css.files+'style.css',
+            styleConfig.css.files+'media.css']    
 } 
 
-var path = {
+var path = {	
     production: { //Тут мы укажем куда складывать готовые после сборки файлы
         html: './.production/',
         scripts: './.production/scripts/',
@@ -71,9 +97,9 @@ var path = {
     watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
         html: './.create/*.html',
         scripts: './.create/scripts/**/*.js',
-        css: './.create/css/**/*.css',
-		sass: './.create/sass/**/*.scss',
-        style: './.create/style/**/*.css',
+        css: './.create/style/css/**/*.css',
+		sass: './.create/style/sass/**/*.scss',
+		less: './.create/style/less/**/*.less',        
         images: './.create/images/**/*.*',		
         uploads: './.create/uploads/**/*.*',      
         libs: './.create/libraries/**/*.*',
@@ -88,6 +114,56 @@ gulp.task('html:build', function () {
         .pipe(reload({stream: true}));
 });
 
+gulp.task('less', function () {
+	gulp.src(styleConfig.less.files+'**/*.less')
+	.pipe(less())
+	.pipe(cssmin())
+	.pipe(concat(styleConfig.less.out))
+	.pipe(gulp.dest(styleConfig.optimized.path));
+});
+gulp.task('less-changed',function(callback){
+    gulpSequence('less', 'style-optimized', callback);
+});
+
+gulp.task('sass', function () {
+  return gulp.src(styleConfig.sass.files+'/**/*.scss')
+    .pipe(sass().on('error', sass.logError))    
+	.pipe(cssmin())
+	.pipe(concat(styleConfig.sass.out))
+	.pipe(gulp.dest(styleConfig.optimized.path));
+});
+gulp.task('sass-changed',function(callback){
+    gulpSequence('sass', 'style-optimized', callback);
+});
+
+gulp.task('css', function () {         
+    return gulp.src([file.css[0], file.css[1], file.css[2], file.css[3], file.css[4], file.css[5], file.css[5], file.css[6], file.css[7], file.css[8], file.css[9], file.css[10]])
+		.pipe(cssmin())
+        .pipe(concat(styleConfig.css.out))        
+        .pipe(gulp.dest(styleConfig.optimized.path));
+});
+gulp.task('css-changed',function(callback){
+    gulpSequence('css', 'style-optimized', callback);
+});
+                     
+gulp.task('style-optimized', function () {
+  return gulp.src(styleConfig.optimized.path+"**/*.css")       
+  		.pipe(autoprefixer())
+  		.pipe(concat(styleConfig.optimized.out))        
+        .pipe(gulp.dest('.create/style/'))
+        .pipe(gulp.dest(path.production.style))
+        .pipe(reload({stream: true}));  
+});
+
+gulp.task('style',function(callback){
+    gulpSequence('style-optimized', callback);
+})
+
+
+gulp.task('style',function(callback){
+    gulpSequence('style-optimized', callback);
+})
+
 gulp.task('scripts', function () {
     gulp.src(path.create.scripts) 
         .pipe(gulp.dest(path.production.scripts))
@@ -99,30 +175,6 @@ gulp.task('libs-out', function () {
         .pipe(gulp.dest(path.production.libs))
         .pipe(reload({stream: true}));
 });
-
-gulp.task('sass', function () {
-  return gulp.src('./.create/sass/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./.create/css/'));
-});
-
-gulp.task('css-concat', function () {         
-    return gulp.src([file.css[0], file.css[1], file.css[2], file.css[3], file.css[4], file.css[5], file.css[5], file.css[6], file.css[7], file.css[8], file.css[9]])
-        .pipe(concat(concatConfig.file))        
-        .pipe(gulp.dest('.create/tmp'))
-});
-                     
-gulp.task('css-build', function () {
-  return gulp.src(path.create.tmp)    
-        //.pipe(cssmin()) //Сожмем        
-        .pipe(gulp.dest('.create/style/'))
-        .pipe(gulp.dest(path.production.style))
-        .pipe(reload({stream: true}));  
-});
-
-gulp.task('css',function(callback){
-    gulpSequence('css-concat','css-build', callback);
-})
 
 gulp.task('fonts', function () {
     gulp.src(path.create.fonts) 
@@ -172,7 +224,9 @@ gulp.task('build', [
     'images',
     'fonts',
 	'scripts',
-	'sass',
+	'css-changed',
+	'sass-changed',
+	'less-changed',
 	'libs-out'
 ]);
 
@@ -182,7 +236,7 @@ gulp.task('watch', function(){
         gulp.start('html:build');
     });       
 	watch([path.watch.css], function(event, cb) {
-        gulp.start('css');
+        gulp.start('css-changed');
     });       
     watch([path.watch.scripts], function(event, cb) {
         gulp.start('scripts');
@@ -194,7 +248,10 @@ gulp.task('watch', function(){
         gulp.start('libs-out');
     }); 	
 	watch([path.watch.sass], function(event, cb) {
-        gulp.start('sass');
+        gulp.start('sass-changed');
+    });  	
+	watch([path.watch.less], function(event, cb) {
+        gulp.start('less-changed');
     });   
 	watch([path.watch.images], function(event, cb) {
         gulp.start('images');
@@ -204,4 +261,4 @@ gulp.task('watch', function(){
     });   	
 });
 
-gulp.task('default', ['webserver', 'build', 'watch', 'css', 'libs-in']);
+gulp.task('default', ['webserver', 'build', 'watch', 'style', 'libs-in']);

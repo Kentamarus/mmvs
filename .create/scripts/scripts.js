@@ -22,13 +22,7 @@ var Site = new function () {
         else if ($("body").width() > 639)  { show_count = 2;}
         else show_count = 1;
         
-//        $('.multiple-items').slick({
-//            infinite: true,
-//            dots: false,
-//            slidesToShow: show_count,
-//            slidesToScroll: show_count,
-//        }); 
-		  $('.multiple-items').slick(
+		  $('.aboutCompany .slider').slick(
 			{
 				dots: false,
 				infinite: true,
@@ -36,8 +30,7 @@ var Site = new function () {
 				slidesToShow: show_count				
 			});
 	 },
-    this.init = function(){
-		this.parseUrl();
+    this.init = function(){		
         this.sliderOrganization();
         $(".navbar-toggle").bind("click", function(e){
             e.preventDefault();
