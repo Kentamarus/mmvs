@@ -49,8 +49,7 @@ var config = {
     host: 'localhost',
     port: 9000,
     logPrefix: "Bar"
-};
-
+}
 
 var file ={
     js: [
@@ -89,7 +88,7 @@ var path = {
         style: './.create/style/**/*.css',
         libs: './.create/libraries/**/*.*',
         outLib: './.create/libraries/',
-        images: './.create/images/**/*.*',     		
+        images: './.create/style/images/**/*.*',     		
         uploads: './.create/uploads/**/*.*',      
         fonts: './.create/fonts/**/*.*',
         tmp: './.create/tmp/**/*.css'
@@ -100,7 +99,7 @@ var path = {
         css: './.create/style/css/**/*.css',
 		sass: './.create/style/sass/**/*.scss',
 		less: './.create/style/less/**/*.less',        
-        images: './.create/images/**/*.*',		
+        images: './.create/style/images/**/*.*',
         uploads: './.create/uploads/**/*.*',      
         libs: './.create/libraries/**/*.*',
         fonts: './.create/fonts/**/*.*'      
@@ -122,7 +121,7 @@ gulp.task('less', function () {
 	.pipe(gulp.dest(styleConfig.optimized.path));
 });
 gulp.task('less-changed',function(callback){
-    gulpSequence('less', 'style-optimized', callback);
+    gulpSequence(['less', 'style-optimized'], callback);
 });
 
 gulp.task('sass', function () {
@@ -133,7 +132,7 @@ gulp.task('sass', function () {
 	.pipe(gulp.dest(styleConfig.optimized.path));
 });
 gulp.task('sass-changed',function(callback){
-    gulpSequence('sass', 'style-optimized', callback);
+    gulpSequence(['sass', 'style-optimized'], callback);
 });
 
 gulp.task('css', function () {         
@@ -142,12 +141,16 @@ gulp.task('css', function () {
         .pipe(concat(styleConfig.css.out))        
         .pipe(gulp.dest(styleConfig.optimized.path));
 });
-gulp.task('css-changed',function(callback){
-    gulpSequence('css', 'style-optimized', callback);
+gulp.task('css-changed', function(callback){
+    gulpSequence(['css', 'style-optimized'], callback);
 });
                      
 gulp.task('style-optimized', function () {
-  return gulp.src(styleConfig.optimized.path+"**/*.css")       
+  return gulp.src([
+	  styleConfig.optimized.path+"/common-css.css",
+	  styleConfig.optimized.path+"/common-sass.css",
+	  styleConfig.optimized.path+"/common-less.css"
+  ])       
   		.pipe(autoprefixer())
   		.pipe(concat(styleConfig.optimized.out))        
         .pipe(gulp.dest('.create/style/'))
@@ -183,13 +186,6 @@ gulp.task('fonts', function () {
 
 
 gulp.task('libs-in', function () {    
-//    var str = "";
-//    for (var i=0; i<fileToSite.js.length; i++ )
-//        {
-//            str += "'"+fileToSite.js[i]+"'";
-//            if (i+1< fileToSite.js.length) str += ","
-//        }    
-    //str = "["+str+"]";
     gulp.src([ file.js[0], file.js[1], file.js[2] ])    
         .pipe(gulp.dest(path.create.outLib))
         .pipe(gulp.dest(path.production.libs)) 

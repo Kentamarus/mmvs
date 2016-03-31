@@ -80,7 +80,7 @@ nav{
 	width: 162px;
 	height: 91px;
 	background: url('../images/logotype.png') no-repeat;
-	margin: 0 0 0 15px!important;
+	margin: 0 0 0 15px;
 }
 
 header{
@@ -292,4 +292,30 @@ header .main-block{
 .slick-next.slick-arrow{
 	background-position: right top;
 	right: -75px;
+}
+
+/*services*/
+.services{
+	margin-top: -200px;
+}
+.services .title{
+	line-height: 340px;
+}
+.services {}
+
+.devices{}
+.devices{}
+.devices{}
+.devices{}
+.devices{}
+
+/*services========*/
+
+.title{
+	text-align: center;
+}
+
+
+.title-small{
+	text-align: center;
 }

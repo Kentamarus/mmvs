@@ -29,7 +29,10 @@ div{ margin: 0 auto;}
 
 /*global========*/
 
-
+.ul{
+	margin: 0;
+	padding: 0;
+}
 
 /* Bootstrap modal windwow is center*/
 
