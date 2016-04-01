@@ -132,7 +132,7 @@ gulp.task('sass', function () {
 	.pipe(gulp.dest(styleConfig.optimized.path));
 });
 gulp.task('sass-changed',function(callback){
-    gulpSequence(['sass', 'style-optimized'], callback);
+    gulpSequence(['sass', 'style-optimized'], callback);	
 });
 
 gulp.task('css', function () {         
@@ -191,13 +191,7 @@ gulp.task('libs-in', function () {
         .pipe(gulp.dest(path.production.libs)) 
         .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
 });
-                     
-                     
-gulp.task('webserver', function () {
-    browserSync(config);
-});
-
-
+                    
 gulp.task('uploads', function () {
     gulp.src(path.create.uploads)
         .pipe(imagemin({ progressive: true, svgoPlugins: [{removeViewBox: false}],use: [pngquant()], interlaced: true}))
@@ -209,23 +203,42 @@ gulp.task('images', function () {
         .pipe(gulp.dest(path.production.images))
 });
 
-//gulp.task('fontgen', function() {
-//  return gulp.src("./.fonts/src/*.{ttf,otf}")
-//    	 .pipe(fontgen({dest: "./.fonts/dest/"}));
+/*On production*/
+//gulp.task('build', [
+//    'html:build',         
+//    'uploads',
+//    'images',
+//    'fonts',
+//	'scripts',
+//	'css-changed',
+//	'sass-changed',
+//	'less-changed',
+//	'libs-out'
+//]);
+//
+//gulp.task('webserver', function () {
+//    browserSync(config);
 //});
+//gulp.task('default', ['webserver', 'build', 'watch', 'style', 'libs-in']);
+/*On production===============*/
 
+/*test in .create*/
 gulp.task('build', [
-    'html:build',         
-    'uploads',
+    //'html:build',         
+    //'uploads',
     'images',
-    'fonts',
-	'scripts',
+    //'fonts',
+	//'scripts',
 	'css-changed',
 	'sass-changed',
 	'less-changed',
 	'libs-out'
 ]);
-
+gulp.task('webserver', function () {
+    browserSync({server: { baseDir: "./.create"},host: 'localhost', port: 9000, logPrefix: "Bar"});
+});
+gulp.task('default', ['webserver', 'build', 'watch', 'style']);
+/*test in .create===================*/
 
 gulp.task('watch', function(){  
 	watch([path.watch.html], function(event, cb) {
@@ -257,4 +270,3 @@ gulp.task('watch', function(){
     });   	
 });
 
-gulp.task('default', ['webserver', 'build', 'watch', 'style', 'libs-in']);

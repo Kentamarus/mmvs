@@ -3,9 +3,6 @@ body{
     height: 100%;
     display: block;    
 }
-body {
-    background:#f5f5f5;
-}
 
 a:link,
 a:visited{
@@ -49,7 +46,6 @@ nav{
 }
 .navbar-collapse{ height: 52px;}
 /*nav===========*/
-
 
 .cd-top {
     display: block;
@@ -289,7 +285,7 @@ header .main-block{
 	background-position: left top;
 	left: -75px;
 }
-.slick-next.slick-arrow{
+.slick-next.slick-arrow{ 
 	background-position: right top;
 	right: -75px;
 }
@@ -299,23 +295,11 @@ header .main-block{
 	margin-top: -200px;
 }
 .services .title{
-	line-height: 340px;
+	line-height: 82px;
 }
-.services {}
-
-.devices{}
-.devices{}
-.devices{}
-.devices{}
-.devices{}
-
 /*services========*/
 
-.title{
-	text-align: center;
-}
-
-
+.title,
 .title-small{
 	text-align: center;
 }
