@@ -1,11 +1,21 @@
 
-@media (max-width: 1024px){
-    
+@media (max-width: 1280px){
+    .aboutCompany {
+    	padding-left: 65px;
+	}
+	.slide2:before {
+		left: -45px;
+	}
+	.organization {	
+		margin: 0 35px;
+		margin-top: 15px;
+	}
 }
 
 
 
 @media (max-width: 1024px) and (min-width: 763px){
+/*
      .navbar-nav > li > a{ padding: 0 3px;}
     .nav {
         margin-left: 0;
@@ -30,8 +40,48 @@
     .navbar-collapse.collapse {        
         overflow: hidden!important;
     }
+*/
+	
 }
 
+@media (max-width: 1024px){
+	.navbar-nav>li>a{ padding: 0 20px;}
+	header .main-block {
+		padding: 70px 0 0 0;
+	}
+	.video-sistem .item-col {
+    	width: 156px;
+	}
+	.slide2:before{
+		background-size: 1500px;
+	}
+	.detail {
+    	right: 309px;
+	}
+	.aboutCompany .icon1:before,
+	.aboutCompany .icon2:before{
+		left: -85px;
+	}
+	.aboutCompany{
+		padding-top: 15px;
+	}
+	.aboutCompany .block .title {
+		font-size: 29px;
+		line-height: 70px;
+	}
+	.aboutCompany .minHeight1{
+		min-height: 200px;
+	}
+	.aboutCompany .icon2:before{
+		top: -23px;
+	}
+	.organization {
+    	max-width: 740px;
+	}
+	.services-list .block-btn .btn {
+		max-width: 135px;
+	}
+}
 @media (max-width: 768px){
     
 }

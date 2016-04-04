@@ -116,33 +116,60 @@ gulp.task('html:build', function () {
 gulp.task('less', function () {
 	gulp.src(styleConfig.less.files+'**/*.less')
 	.pipe(less())
-	.pipe(cssmin())
 	.pipe(concat(styleConfig.less.out))
 	.pipe(gulp.dest(styleConfig.optimized.path));
 });
-gulp.task('less-changed',function(callback){
-    gulpSequence(['less', 'style-optimized'], callback);
+
+gulp.task('style-optimized-less',['less'], function () {
+  return gulp.src([
+	  styleConfig.optimized.path+"/common-css.css",
+	  styleConfig.optimized.path+"/common-sass.css",
+	  styleConfig.optimized.path+"/common-less.css"
+  ])       
+  		.pipe(autoprefixer())  
+		.pipe(cssmin())
+  		.pipe(concat(styleConfig.optimized.out))        
+        .pipe(gulp.dest('.create/style/'))
+        .pipe(gulp.dest(path.production.style))
+        .pipe(reload({stream: true}));  
 });
 
 gulp.task('sass', function () {
   return gulp.src(styleConfig.sass.files+'/**/*.scss')
     .pipe(sass().on('error', sass.logError))    
-	.pipe(cssmin())
 	.pipe(concat(styleConfig.sass.out))
 	.pipe(gulp.dest(styleConfig.optimized.path));
 });
-gulp.task('sass-changed',function(callback){
-    gulpSequence(['sass', 'style-optimized'], callback);	
+gulp.task('style-optimized-sass',['sass'], function () {
+  return gulp.src([
+	  styleConfig.optimized.path+"/common-css.css",
+	  styleConfig.optimized.path+"/common-sass.css",
+	  styleConfig.optimized.path+"/common-less.css"
+  ])       
+  		.pipe(autoprefixer())  
+		.pipe(cssmin())
+  		.pipe(concat(styleConfig.optimized.out))        
+        .pipe(gulp.dest('.create/style/'))
+        .pipe(gulp.dest(path.production.style))
+        .pipe(reload({stream: true}));  
 });
-
 gulp.task('css', function () {         
     return gulp.src([file.css[0], file.css[1], file.css[2], file.css[3], file.css[4], file.css[5], file.css[5], file.css[6], file.css[7], file.css[8], file.css[9], file.css[10]])
-		.pipe(cssmin())
         .pipe(concat(styleConfig.css.out))        
         .pipe(gulp.dest(styleConfig.optimized.path));
 });
-gulp.task('css-changed', function(callback){
-    gulpSequence(['css', 'style-optimized'], callback);
+gulp.task('style-optimized-css',['css'], function () {
+  return gulp.src([
+	  styleConfig.optimized.path+"/common-css.css",
+	  styleConfig.optimized.path+"/common-sass.css",
+	  styleConfig.optimized.path+"/common-less.css"
+  ])       
+  		.pipe(autoprefixer())  
+		.pipe(cssmin())
+  		.pipe(concat(styleConfig.optimized.out))        
+        .pipe(gulp.dest('.create/style/'))
+        .pipe(gulp.dest(path.production.style))
+        .pipe(reload({stream: true}));  
 });
                      
 gulp.task('style-optimized', function () {
@@ -151,21 +178,17 @@ gulp.task('style-optimized', function () {
 	  styleConfig.optimized.path+"/common-sass.css",
 	  styleConfig.optimized.path+"/common-less.css"
   ])       
-  		.pipe(autoprefixer())
+  		.pipe(autoprefixer())  
+		.pipe(cssmin())
   		.pipe(concat(styleConfig.optimized.out))        
         .pipe(gulp.dest('.create/style/'))
         .pipe(gulp.dest(path.production.style))
         .pipe(reload({stream: true}));  
 });
 
-gulp.task('style',function(callback){
-    gulpSequence('style-optimized', callback);
-})
-
-
-gulp.task('style',function(callback){
-    gulpSequence('style-optimized', callback);
-})
+gulp.task('style',function(){
+	return gulp.task('style-optimized');
+});
 
 gulp.task('scripts', function () {
     gulp.src(path.create.scripts) 
@@ -204,48 +227,48 @@ gulp.task('images', function () {
 });
 
 /*On production*/
+gulp.task('build', [
+    'html:build',         
+    'uploads',
+    'images',
+    'fonts',
+	'scripts',
+	'style-optimized-less',
+	'style-optimized-sass',
+	'style-optimized-css',
+	'libs-out'
+]);
+
+gulp.task('webserver', function () {
+    browserSync(config);
+});
+gulp.task('default', ['webserver', 'build', 'watch', 'style', 'libs-in']);
+/*On production===============*/
+
+///*test in .create*/
 //gulp.task('build', [
-//    'html:build',         
-//    'uploads',
+//    //'html:build',         
+//    //'uploads',
 //    'images',
-//    'fonts',
-//	'scripts',
+//    //'fonts',
+//	//'scripts',
 //	'css-changed',
 //	'sass-changed',
 //	'less-changed',
 //	'libs-out'
 //]);
-//
 //gulp.task('webserver', function () {
-//    browserSync(config);
+//    browserSync({server: { baseDir: "./.create"},host: 'localhost', port: 9000, logPrefix: "Bar"});
 //});
-//gulp.task('default', ['webserver', 'build', 'watch', 'style', 'libs-in']);
-/*On production===============*/
-
-/*test in .create*/
-gulp.task('build', [
-    //'html:build',         
-    //'uploads',
-    'images',
-    //'fonts',
-	//'scripts',
-	'css-changed',
-	'sass-changed',
-	'less-changed',
-	'libs-out'
-]);
-gulp.task('webserver', function () {
-    browserSync({server: { baseDir: "./.create"},host: 'localhost', port: 9000, logPrefix: "Bar"});
-});
-gulp.task('default', ['webserver', 'build', 'watch', 'style']);
-/*test in .create===================*/
+//gulp.task('default', ['webserver', 'build', 'watch', 'style']);
+///*test in .create===================*/
 
 gulp.task('watch', function(){  
 	watch([path.watch.html], function(event, cb) {
         gulp.start('html:build');
     });       
 	watch([path.watch.css], function(event, cb) {
-        gulp.start('css-changed');
+        gulp.start('style-optimized-css');
     });       
     watch([path.watch.scripts], function(event, cb) {
         gulp.start('scripts');
@@ -257,10 +280,10 @@ gulp.task('watch', function(){
         gulp.start('libs-out');
     }); 	
 	watch([path.watch.sass], function(event, cb) {
-        gulp.start('sass-changed');
+        gulp.start('style-optimized-sass');
     });  	
 	watch([path.watch.less], function(event, cb) {
-        gulp.start('less-changed');
+        gulp.start('style-optimized-less');
     });   
 	watch([path.watch.images], function(event, cb) {
         gulp.start('images');

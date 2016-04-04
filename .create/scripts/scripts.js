@@ -3,22 +3,36 @@ $(function(){
     Site.init();     
 });
 
-jQuery.fn.hoverItem = function() {
-    var clazz = { item:"active-hover", item_prev:"prev", item_next:"next"}
+jQuery.fn.hoverItem = function(options) {
+    var clazz = { 
+		item:"active-hover", 
+		item_prev:"prev",
+		item_next:"next",
+		list : $.extend({}, options)
+	}	
     $(this).hover(function(){            
         var item = $(this);
-        сlear(item.parent().find(".base"));  // $('div:not(.lBox)')
+		
+        сlear();
+		var index = item.index();
         item.addClass(clazz.item);
         item.prev().addClass(clazz.item_prev);
         item.next().addClass(clazz.item_next);
+		clazz.list.collect.each(function(){
+			var t = $(this);
+			var current = t.find("li").eq(index);
+			current.addClass(clazz.item);
+			current.prev().addClass(clazz.item_prev);
+			current.next().addClass(clazz.item_next);
+		});
     }, function(){
         var item = $(this);
-        сlear(item.parent().find(".base"));  // $('div:not(.lBox)')
+        сlear(); 
     });
     
-    function сlear(item)
+    function сlear()
     {
-        item.parent().find(".base").removeClass(clazz.item).removeClass(clazz.item_prev).removeClass(clazz.item_next);
+        clazz.list.collect.find("li").removeClass(clazz.item).removeClass(clazz.item_prev).removeClass(clazz.item_next);
     }
 };
 
@@ -40,16 +54,21 @@ var Site = new function () {
 			});
 	 },
 	this.broadcast = function(){
-		var obj = $(".broadcast");
-		var clazz = ['prev', 'hover', 'next']
-		 obj.find(".character").hover(function(){
-			 var t = $(this);
-			 t.addClass(h);
-		 });
+		$(".broadcast li").hoverItem({
+			collect: $(".broadcast ul")
+		});		
 	},
     this.init = function(){		
         this.sliderOrganization();
 		this.broadcast();
+		 
+		$(".our-services .item-col").hover(function() {
+            var t = $(this).find(".image img");
+            t.attr("src", t.data("hover"));
+        }, function() {
+            var t = $(this).find(".image img");
+            t.attr("src", t.data("load"));
+        })
 		 
         $(".navbar-toggle").bind("click", function(e){
             e.preventDefault();

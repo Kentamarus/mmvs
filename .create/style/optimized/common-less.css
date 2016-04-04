@@ -1,2 +1,16 @@
 
-.btn-default,.btn-primary{line-height:46px;height:50px;text-align:center;background-color:#fff;font-size:16px;font-family:OpenSans-Bold;text-transform:uppercase;width:100%}.bold{font-family:OpenSans-Bold}.btn-default{border:2px solid #65d8ff;color:#10b8f4;border-radius:10px}.btn-primary{border:2px solid #65d8ff;color:#10b8f4b;border-radius:10px;background-image:-moz-linear-gradient(90deg,#23c1f6 0,#66d9ff 100%);background-image:-webkit-linear-gradient(90deg,#23c1f6 0,#66d9ff 100%);background-image:-ms-linear-gradient(90deg,#23c1f6 0,#66d9ff 100%)}.btn-primary:hover{background-color:#1fc0f5}.intro32,.services .title{font-family:IntroRegular;color:#242424;font-size:32px}.bold26{color:#242424;font-size:26px;font-family:OpenSans-Bold}
+.intro32 {
+  font-family: IntroRegular;
+  color: #242424;
+  font-size: 32px;
+}
+.services .title {
+  font-family: IntroRegular;
+  color: #242424;
+  font-size: 32px;
+}
+.bold26 {
+  color: #242424;
+  font-size: 26px;
+  font-family: OpenSans-Bold;
+}

@@ -38,6 +38,7 @@ nav{
     line-height: 90px;   
 	padding: 0 30px;
 }
+.nav>li:hover a,
 .nav>li>a:focus,
 .nav>li>a:hover {
     text-decoration: none;
@@ -260,8 +261,9 @@ header .main-block{
 	content: "";
     left: 0;
     width: 100%;
-    top: 199px;
+    top: 185px;
     background-image: url(../images/lines.png);
+	background-repeat: no-repeat;
     background-position: center top;
     position: absolute;
     display: block;
