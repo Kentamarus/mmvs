@@ -59,7 +59,7 @@ var file ={
     ],
     css: [
             styleConfig.css.files+'normalize.css',
-            './bower_components/bootstrap/dist/css/bootstrap.min.css',
+            styleConfig.css.files+'bootstrap.min.css',
             '',            
             styleConfig.css.files+'magnific-popup.css',
             '',
@@ -121,11 +121,12 @@ gulp.task('less', function () {
 });
 
 gulp.task('style-optimized-less',['less'], function () {
-  return gulp.src([
+ return gulp.src([
 	  styleConfig.optimized.path+"/common-css.css",
 	  styleConfig.optimized.path+"/common-sass.css",
-	  styleConfig.optimized.path+"/common-less.css"
-  ])       
+	  styleConfig.optimized.path+"/common-less.css",
+	  globalPath.create+"style/media.css"
+  ])             
   		.pipe(autoprefixer())  
 		.pipe(cssmin())
   		.pipe(concat(styleConfig.optimized.out))        
@@ -144,8 +145,9 @@ gulp.task('style-optimized-sass',['sass'], function () {
   return gulp.src([
 	  styleConfig.optimized.path+"/common-css.css",
 	  styleConfig.optimized.path+"/common-sass.css",
-	  styleConfig.optimized.path+"/common-less.css"
-  ])       
+	  styleConfig.optimized.path+"/common-less.css",
+	  globalPath.create+"style/media.css"
+  ])             
   		.pipe(autoprefixer())  
 		.pipe(cssmin())
   		.pipe(concat(styleConfig.optimized.out))        
@@ -159,10 +161,11 @@ gulp.task('css', function () {
         .pipe(gulp.dest(styleConfig.optimized.path));
 });
 gulp.task('style-optimized-css',['css'], function () {
-  return gulp.src([
+ return gulp.src([
 	  styleConfig.optimized.path+"/common-css.css",
 	  styleConfig.optimized.path+"/common-sass.css",
-	  styleConfig.optimized.path+"/common-less.css"
+	  styleConfig.optimized.path+"/common-less.css",
+	  globalPath.create+"style/media.css"
   ])       
   		.pipe(autoprefixer())  
 		.pipe(cssmin())
@@ -176,7 +179,8 @@ gulp.task('style-optimized', function () {
   return gulp.src([
 	  styleConfig.optimized.path+"/common-css.css",
 	  styleConfig.optimized.path+"/common-sass.css",
-	  styleConfig.optimized.path+"/common-less.css"
+	  styleConfig.optimized.path+"/common-less.css",
+	  globalPath.create+"style/media.css"
   ])       
   		.pipe(autoprefixer())  
 		.pipe(cssmin())

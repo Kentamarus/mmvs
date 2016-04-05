@@ -58,22 +58,35 @@ var Site = new function () {
 			collect: $(".broadcast ul")
 		});		
 	},
-    this.init = function(){		
-        this.sliderOrganization();
-		this.broadcast();
-		 
-		$(".our-services .item-col").hover(function() {
+	this.ourServices = function(){
+		var clazz = "active";
+		var item = $(".our-services .item-col");
+		item.hover(function() {
             var t = $(this).find(".image img");
             t.attr("src", t.data("hover"));
         }, function() {
-            var t = $(this).find(".image img");
+            var t = $(this);
+			if (t.hasClass(clazz)) return;
+			t = t.find(".image img");
             t.attr("src", t.data("load"));
-        })
+		});
 		 
+		 var _ = item.filter("."+clazz);
+		 if (_.length>0)
+			 {
+				var t = _.find(".image img");
+				t.attr("src", t.data("hover"));
+			 }
+	},
+    this.init = function(){		
+        this.sliderOrganization();
+		this.broadcast();
+		this.ourServices();
+				 
         $(".navbar-toggle").bind("click", function(e){
             e.preventDefault();
             var obj = $(this).closest(".container").find("#navbar");
-            var visible = ["52px", "295px"];
+            var visible = ["0px", "200px"];
             if (!obj.hasClass("in"))
                 {
                     obj.addClass("collapse in").animate({height:visible[1]},500);

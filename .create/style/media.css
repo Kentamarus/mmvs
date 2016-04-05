@@ -1,0 +1,219 @@
+
+@media (max-width: 1280px){
+    .aboutCompany {
+    	padding-left: 65px;
+	}
+	.slide2:before {
+		left: -45px;
+	}
+	.organization {	
+		margin: 0 35px;
+		margin-top: 15px;
+	}
+}
+
+
+
+@media (max-width: 770px) and (min-width: 100px){
+     .navbar-nav > li > a{ padding: 0 3px;}
+    .nav {
+        margin-left: 0;
+    }
+    .navbar .container {
+        width: 100%;
+        padding: 0;
+    }
+    .navbar-nav > li {
+        float: none;
+    }
+    .navbar-nav {
+        float: none;
+    }
+    .icons-network a {
+        margin-left: 0;
+    }
+    .navbar-toggle {
+        display: block;
+		border: 1.5px solid white;
+		margin-top: 26px;
+    }
+	.navbar-toggle span{
+		background: white;
+	}
+    .navbar-header { float: none; }
+    .navbar-collapse.collapse {        
+        overflow: hidden!important;
+		height: 0;
+		width: 100%;
+    	margin: 0;
+    }
+	.navbar-nav>li {
+		display: block;
+		float: none;
+		padding: 0;
+		margin: 0;
+		line-height: 0;
+	}
+	.navbar-nav>li>a{ line-height: 50px;}
+	.will-call{ margin-right: 70px;}
+	
+	
+}
+
+@media (max-width: 1024px){
+	.navbar-nav>li>a{ padding: 0 20px;}
+	header .main-block {
+		padding: 70px 0 0 0;
+	}
+	.video-sistem .item-col {
+    	width: 156px;
+	}
+	.slide2:before{
+		background-size: 1500px;
+	}
+	.detail {
+    	right: 309px;
+	}
+	.aboutCompany .icon1:before,
+	.aboutCompany .icon2:before{
+		left: -85px;
+	}
+	.aboutCompany{
+		padding-top: 15px;
+	}
+	.aboutCompany .block .title {
+		font-size: 29px;
+		line-height: 70px;
+	}
+	.aboutCompany .minHeight1{
+		min-height: 200px;
+	}
+	.aboutCompany .icon2:before{
+		top: -23px;
+	}
+	.organization {
+    	max-width: 740px;
+	}
+	.services-list .block-btn .btn {
+		max-width: 135px;
+	}
+	.grid-description .item-col{ min-height: 200px; }
+	
+	.broadcast .item1{ width: 26%;}
+	.broadcast .character li p{    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;}
+	
+	.broadcast .item2,
+	.broadcast .item3,
+	.broadcast .item4,
+	.broadcast .item5{ margin-left: 15px;}
+}
+@media (max-width: 768px){
+    .detail {
+		right: 309px;
+		top: 70px;
+	}
+	.slide2:before {
+		background: none;
+	}
+	.aboutCompany .icon1:before, 
+	.aboutCompany .icon2:before {
+		left: -75px;
+		top: -18px;
+	}
+	.aboutCompany .icon2:before {
+		top: 0;
+	}
+	.organization {
+		max-width: 470px;
+		margin: 0 auto;
+	}
+	.will-call {
+		margin-top: -70px;
+	}
+	header .title span{
+		font-size: 44px;
+	}
+	header .main-block{
+		width: 65%;
+		padding-top: 30px;
+	}
+	.video-sistem {
+		padding-top: 20px;
+	}
+	.our-services .base {
+		max-width: 570px;
+		margin: 0 auto;
+	}
+	.services-list .name {
+		line-height: 25px;
+		padding-bottom: 10px;
+	}
+	.services-list .image {
+		margin: 0 10px 10px 10px;
+		position: relative;
+	}
+	.services-list .name:last-child {
+		min-height: 60px;
+	}
+	.services-list .block-btn{ text-align: center;} 
+	.services-list .block-btn .btn{
+		float: none!important;
+		margin: 0 auto;
+		margin-bottom: 10px;
+	}
+	footer .navbar-nav{ display: none;}
+	
+	.grid-description .item-col {
+		width: 50%;
+	}
+/*
+	.grid-description .item-col:nth-child(7),
+	.grid-description .item-col:nth-child(8),
+	.grid-description .item-col:nth-child(9){ border-bottom: none;}
+*/
+	.grid-description .item-col{ border: 1px solid #efefef!important; }
+	
+/*
+ 	.grid-description .item-col:nth-child(7),
+	.grid-description .item-col:nth-child(8),
+	.grid-description .item-col:nth-child(9){ border-bottom: 1px solid #efefef; }
+*/
+	.grid-description .item-col:nth-child(1){ border-top-color: transparent!important;}
+	.grid-description .item-col:nth-child(2){ border-top-color: transparent!important;}
+	.grid-description .item-col:nth-child(2n+2){ padding:0 0 0 15px; border-right: none!important; }
+	.grid-description .item-col:nth-child(2n+1){ padding-left: 0; border-left: none!important;}	
+
+	.broadcast .title {
+		line-height: 40px;
+		margin: 15px 0;
+	}
+
+	.broadcast .item1{ width: 25%;}
+	.broadcast .item-col .base{ width: 120px;}
+	.broadcast .title-small{ font-size: 18px;}
+	footer .will-call {
+		margin-top: 19px;
+		margin-right: 0;
+	}
+	footer .navbar-brand {
+		margin-left: 0!important;
+	}
+	footer .item-col:first-child{ width: 255px;}
+	footer .item-col.item-middle{ width: 280px;}
+	footer .item-col:last-child{ float: right;}
+}
+
+@media (max-width: 640px){
+    
+}
+
+
+@media (max-width: 500px){
+    
+}
+
+@media (max-width: 400px){  
+    
+}
