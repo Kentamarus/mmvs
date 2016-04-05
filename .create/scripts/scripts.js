@@ -267,7 +267,7 @@ var Browser = new function() {
     };
     this.viewPort = function() {
         var def = document.querySelector("meta[name=viewport]");
-        var view = '<meta name="viewport" content="width=980">';
+        var view = '<meta name="viewport" content="width=399">';
         if (def != null) {            
             if (this.isIpad()) { 
                 def.remove();

@@ -123,6 +123,8 @@ header .title span{ font-size: 60px; display: block;}
 header .main-block{
 	padding-top: 70px;
 	float: right;
+	z-index: 80;
+	position: relative;
 }
 
 .video-sistem{ padding-top: 30px;}
@@ -132,9 +134,11 @@ header .main-block{
 	text-align: center;
 	border-radius: 10px;
 	padding: 0;
+	background-repeat: repeat;
 }
 .video-sistem .item-col:hover{
 	background-image: url('../images/space.png');		
+	
 }
 .video-sistem p{
 	color: white;
@@ -171,14 +175,6 @@ header .main-block{
 .our-projects .image{	
 	min-height: 52px;
 	margin-bottom: 17px;
-}
-
-.slide2{
-	margin-top: -248px;
-	padding-top: 115px;
-	min-height: 1033px;
-	position: relative;
-	z-index: 50;
 }
 
 .text16{

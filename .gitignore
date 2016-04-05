@@ -7,3 +7,5 @@ temp
 app/style/
 .documents
 ftpClient.js
+.create/style/bundle.css
+.uploads/.create/back-end/classes/message.php
