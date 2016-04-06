@@ -3,6 +3,11 @@ $(function(){
     Site.init();     
 });
 
+$(window).scroll(function() {
+	var obj = $("nav");
+	($(this).scrollTop()> 50) ? obj.addClass("fix") : obj.removeClass("fix");
+});
+
 jQuery.fn.hoverItem = function(options) {
     var clazz = { 
 		item:"active-hover", 
@@ -38,7 +43,7 @@ jQuery.fn.hoverItem = function(options) {
 
 
 var Site = new function () {
-	 this.sliderOrganization = function(){
+	this.sliderOrganization = function(){
 		var show_count = 5;
         if ($("body").width() > 1024) { show_count = 5; } 
         else if ($("body").width() > 768)  { show_count = 3;}
@@ -96,17 +101,17 @@ var Site = new function () {
         }); 
          
         //smooth scroll to top
-        $(".cd-top").on('click', function(event){
-            event.preventDefault();
-            $('body,html').animate({
-                scrollTop: 0 ,
-                }, 700
-            );
-        });    
+//        $(".cd-top").on('click', function(event){
+//            event.preventDefault();
+//            $('body,html').animate({
+//                scrollTop: 0 ,
+//                }, 700
+//            );
+//        });    
         
-	 $('input[type=tel]').mask("+7(999) 999-9999");
+	 	$('input[type=tel]').mask("+7(999) 999-9999");
                
-     $(".call-back-form").each(function() {
+     	$(".call-back-form").each(function() {
             var it = $(this);
             it.validate({
                 rules: {
@@ -127,35 +132,11 @@ var Site = new function () {
                     
                     thisForm.find("input[type=tel]").removeClass("focus");
                     thisForm.find(".mask").removeClass("active");
-                    
-                    $(this).find("input").val("");
-                    var value = [{
-                        old: '.people',
-                        id: "people"
-                    }, {
-                        old: '.phone',
-                        id: "phone"
-                    }, {
-                        old: '.email',
-                        id: "email"
-                    }];
-                    var temp = null;
-                    for (i = 0; i < 3; i++) {
-                        temp = thisForm.find(value[i].old);
-                        if (temp != undefined) {
-                            var newForm = thisForm.find(value[i].old).attr("id", value[i].id).attr("name", value[i].id);
-                            thisForm.find(value[i].old).html(newForm);
-                        }
-                    }    
-                    
-                    thisForm.find("input[type='tel']").val("+375 " + thisForm.find("input[type='tel']").val());                    
-                    var str = thisForm.serialize();
-                    thisForm.find("input").val("");                                      
-					    					
+                    										
                     $.ajax({
                         type: "POST",
                         url: "back-end/main.php",
-                        data: str
+                        data: thisForm.serialize()
                     }).done(function() {
                         
                         $(this).find("input").val("");                                           
@@ -182,7 +163,7 @@ var Site = new function () {
             })
         });
         
-         $('.call').magnificPopup({
+	 	$('.call').magnificPopup({
             fixedContentPos: false,
             fixedBgPos: true,
             overflowY: 'auto',

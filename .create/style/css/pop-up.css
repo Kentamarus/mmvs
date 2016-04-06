@@ -1,6 +1,6 @@
 .pop-up {
     max-width: 340px;
-    height: 315px;
+    height: 335px;
     margin: 0 auto;
     padding: 35px 30px 0;
 /*    background-image: url(../images/form.jpg);*/
@@ -10,25 +10,20 @@
 }
 
 .pop-up .title {
-    color: #323232;
-    margin: 0;
-    text-transform: none
+    color: #4f4f4f;
+	font-size: 18px;
+	text-align: center;
+    font-family: OpenSans-Regular;
 }
 
-.pop-up.title span {
-    font-size: 22px;
-    color: #0166b0;
-    font-family: IntroRegular;
+.pop-up .title span {
+    font-size: 24px;
+    color: #4f4f4f;
+    font-family: OpenSans-Regular;
     display: block
 }
-
-.pop-up .title i {
-    font-size: 22px;
-    color: #333;
-    font-family: LatoRegular;
-    font-style: normal;
-    display: block
-}
+.pop-up .title p{color: #4f4f4f;}
+.pop-up .title i{ font-style: normal; display: block;}
 
 .pop-up .ul-form {
     margin-top: 20px;
@@ -36,18 +31,26 @@
     margin-bottom: 0
 }
 
-.pop-up.text-empty {
+.pop-up .text-empty::-moz-placeholder{ color: #333!important;}
+.pop-up .text-empty::-webkit-input-placeholder{ color: #333!important;}
+.pop-up .text-empty{ color: #333!important; }
+.pop-up .text-empty.error{ border:1px solid #f24e22; }
+
+.pop-up .text-empty {
+	line-height: 45px;
+	height: 45px;
     font-size: 16px;
-    font-family: LatoLight;
-    color: #333;
+	width: 100%;
+    font-family: OpenSans-Regular;
+    color: #e4e4e4;
     text-align: left;
-    padding-left: 54px;
-    background-color: #ccc;
-    border-color: #bababa
+    padding-left: 20px;
+	border: 1px solid #b1e9ff;
+	border-radius: 20px;
 }
 
 .pop-up .block-base-windows {
-    height: 295px
+    height: 310px;
 }
 
 .pop-up .ico {
@@ -59,26 +62,37 @@
 }
 
 .pop-up .ul-form li {
-    padding-bottom: 28px
+    padding-bottom: 20px
 }
 
 .thanks {
-    padding-top: 90px
+    padding-top: 74px
 }
 
 .small-window {
-	border-bottom: 19px solid #cf3d40;
+	border-bottom: 15px solid #1e8acd;
 }
 
 .small-window .thanks{
 	padding-top: 44px!important;
 }
 
+/*
+.pop-up .btn{
+	height: 45px;
+	line-height: 45px;
+	background-color: #0387bd;
+	font-size: 20px;
+	color: white;
+	font-family: GothamProBlack;
+}
+*/
+
 .thanks .title{
 	line-height: 55px;
     font-size: 20px;
     color: #4f4f4f;
-    font-family: DINPro-Black;
+    font-family: GothamProBlack;
     display: block;
     padding-bottom: 20px
 }
@@ -86,16 +100,18 @@
 .thanks p {
     text-align: center;
     color: #5e5e5e;
-    margin: 0
+    margin: 0;	
+	font-size: 18PX;
 }
 
 .btn-close, 
-button.mfp-close {
+button.mfp-close,
+.mfp-close:active{
     position: absolute;
     right: 10px;
     top: 10px;
-    width: 38px!important;
-    height: 38px!important;
+    width: 15px!important;
+    height: 15px!important;
     background: url(../images/icons/close.png) no-repeat;
     font-size: 0;
 }

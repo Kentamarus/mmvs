@@ -261,7 +261,7 @@
 	.broadcast .block-btn .btn{ float: none;}
 	footer{ padding-bottom: 15px;}
 	footer .panel{ padding: 0 10px;}
-	footer .item-col:last-child{ display: none;}
+/*	footer .item-col:last-child{ display: none;}*/
 	footer .base {
 		line-height: 0;
 		height: auto;
@@ -302,5 +302,50 @@
 		margin: 0 auto;
 		float: none;
     	margin-bottom: 20px;
+	}
+	
+	.main{ padding: 0 5px;}
+	.main .row{ 
+		margin-left:-5px;
+		margin-right:-5px;
+	}
+	nav .navbar-brand{
+		margin-left: 5px!important;
+	}
+	nav .navbar-toggle{
+		margin-right: 5px; 
+	}
+	nav .will-call {
+		margin-right: 55px;
+	}
+
+	.aboutCompany .title{ font-size: 20px; }	
+	.aboutCompany .block .title {
+		font-size: 22px;
+		line-height: 30px;
+	}
+	.aboutCompany .minHeight1, 
+	.grid-description .item-col {	
+		margin-left: -65px;
+	}
+	.aboutCompany .minHeight1 .title{ margin-left: 65px;}
+	.aboutCompany .slick-prev.slick-arrow { left: 0px; }
+	.aboutCompany .slick-next.slick-arrow { right: 0px; }	
+	.organization {
+    	max-width: 320px;
+    	max-width: 240px;
+	}
+	.slide2{ min-height: 0; }
+	.grid-description .item-col{ margin-left: 0; }
+	.aboutCompany .slick-slide img{ margin: 0 auto;}
+	.aboutCompany .base-slider{ margin-left: -65px;}
+	.organization {
+		margin: 0 auto;
+		width: 320px;
+		max-width: 100%;
+	}
+	
+	.aboutCompany .block.item2 .title {    	
+    	line-height: 65px;
 	}
 }

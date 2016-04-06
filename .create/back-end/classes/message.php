@@ -10,24 +10,24 @@ class message{
     var $phone;
     var $description;    
         
-    public function __constructor($to, $from, $name, $phone, $description)
-    {   
-        echo "constructor=\n";
-        echo "constructor=".$this->to."    'to'=".$to;
-        $this->to = $to;                
-        $this->theme = "Content-type: text/plain; charset=\"utf-8\"\n From: $from";
-        $this->name = $name;
-        $this->phone = $phone;
-        $this->description = $description;
-    }
+//    public function __constructor($to, $from, $name, $phone, $description)
+//    {   
+//        echo "constructor=\n";
+//        echo "constructor=".$this->to."    'to'=".$to;
+//        $this->to = $to;                
+//        $this->theme = "Content-type: text/plain; charset=\"utf-8\"\n From: $from";
+//        $this->name = $name;
+//        $this->phone = $phone;
+//        $this->description = $description;
+//    }
     
     public function send()
     {        
         $message = "Имя: $this->name \nТелефон: $this->phone";
         
-        if (empty($this->description)!=1)
+        if (empty($this->email)!=1)
         {
-            $message = "$message \n Заказ окна $this->description";
+            $message = "$message \nEmail: $this->email";
         }
             
         return mail($this->to, $this->from, $message, $this->theme);        

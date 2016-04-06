@@ -10,7 +10,7 @@
         <link rel="icon" href="images/favicon.png">            
         <link rel="stylesheet" type="text/css" href="style/bundle.css">      
     </head>
-<body>
+<body class="not-main">
     
     <div class="container-fluid main">                                       
                      
@@ -44,10 +44,10 @@
 							<input type="hidden" class="subject" name="subject">
 							<ul class="ul-form">
 								<li>
-									<input type="text" class="text-empty" required="" name="fullName" placeholder="Ваше имя ">
+									<input type="text" class="people text-empty" required="" name="people" placeholder="Ваше имя ">
 								</li>
 								<li>          							
-									<input type="tel" class="text-empty" required="" name="phone" placeholder="Ваш телефон">
+									<input type="tel" class="phone text-empty" required="" name="phone" placeholder="Ваш телефон">
 								</li>
 							</ul>
 							<button type="submit" class="btn btn-primary" data-successful>Оставить заявку</button>    
@@ -84,7 +84,7 @@
 			   </div> 
 			  <div id="navbar" class="navbar-collapse collapse">
 				  <ul class="nav navbar-nav">
-					<li class="active"><a href="" data-rel='m_PageScroll2id'>Главная</a></li>      
+					<li><a href="" data-rel='m_PageScroll2id'>Главная</a></li>      
 					<li><a href="" data-rel='m_PageScroll2id'>О компании</a></li>                                                      
 					<li>
 						<a href="" data-rel='m_PageScroll2id'>Предложения</a>
@@ -103,7 +103,7 @@
 			</div>                                               
 	   </div>                   
 </nav>         
-       <header class="row section content">
+        <header class="row section content">
        		 <div class="container clearfix">
 				<div class="col-sm-6 item-col main-block">
 					<h1 class="title">Разработка и внедрение <span>видеосистем</span></h1>
@@ -140,70 +140,14 @@
             </div>
        </header>
         
-        <section class="row slide2 section">
-            <div class="container rel content">
-                <div class="clearfix">
-                	<div class="our-projects">
-						<h2 class="uppercase title-small">Наши проекты</h2>
-						<div class="image">
-							<img src="uploads/ticket.png" alt="">
-						</div>
-						<p>Cистема монетизации видеоконтента</p>
-					</div>
-                </div>
-                
-                <div class="detail text16">
-                	Узнать подробнее
-                </div>
-                
-                <div class="aboutCompany">
-                		<span class="title icon1">НЕМНОГО О КОМПАНИИ</span>
-                		<div class="block item1">
-                			<div class="minHeight1">
-                				<div class="title">ММВС "Мультимедиа Видеосистемы"</div>	
-								<p>Компания ММВС "Мультимедиа Видеосистемы" является разработчиком и интегратором видеосистем, также организатором онлайн-трансляций. 
-								Предлагаемые компанией решения открывают для современного человека сделать свои коммуникации рациональнее и эффективнее. 
-								Аппаратно-программные комплексы ММВС позволяют вести многоракурсное видеовещание в качестве FullHD и выше с минимальной задержкой и доступностью на всех современных платформах и устройствах.</p>
-							</div>
-                		</div>
-                		<div class="block item2">
-							<div class="title icon2">Клиенты и партнеры</div>
-                			<div class="base-slider">
-                				<div class="slider rel slick organization">
-									<div class="item">
-										<img src="uploads/default.png" alt="">
-									</div>
-									<div class="item">
-										<img src="uploads/default.png" alt="">
-									</div>
-									<div class="item">
-										<img src="uploads/default.png" alt="">
-									</div>
-									<div class="item">
-										<img src="uploads/default.png" alt="">
-									</div>
-									<div class="item">
-										<img src="uploads/default.png" alt="">
-									</div>
-									<div class="item">
-										<img src="uploads/default.png" alt="">
-									</div>
-								</div>
-                			</div>
-                		</div>
-                </div>
-                
-            </div>
-        </section>
-        
-        <section class="row services section content">
+         <section class="row services section content">
             <div class="container">
                                 
                 <div class="our-services">
                 	<h3 class="title">Наши услуги</h3>
                 	<div class="base">
                 		<div class="clearfix">
-                			<div class="col-sm-2 item-col active">
+                			<div class="col-sm-2 item-col">
                 				<a href="index.html">
                 					<div class="content">
 										<div class="image"><img src="uploads/ico-live.png" data-load="uploads/ico-live.png" data-hover="uploads/ico-live-a.png" alt=""></div>
@@ -239,7 +183,7 @@
 									<div class="image-hover"><img src="uploads/hover1.jpg" alt=""></div>
                 				</a>
                 			</div>
-                			<div class="col-sm-2 item-col">
+                			<div class="col-sm-2 item-col active">
                 				<a href="page5.html">
 									<div class="content">
 										<div class="image"><img src="uploads/ico-cloud.png" data-load="uploads/ico-cloud.png" data-hover="uploads/ico-cloud-a.png" alt=""></div>
@@ -260,221 +204,61 @@
                 		</div>
                 	</div>	
                 </div>
-                               
-                <div class="devices">                	
-                	<div class="title-small">Органиция онлайн-трансляций</div>                	
-                	<div class="base">							
-						<label>Онлайн-трансляции помогут вам и вашим клиентам:</label>
-						<ul class="ul">
-							<li>Расширить аудиторию мероприятия;</li>
-							<li>Повысить имидж организации или события</li>
-							<li>Предоставить просмотр зрителям, которые не смогут приехать на мероприятие</li>
-							<li>Сэкономить время и бюджет на транспортировке и размещении;</li>
-							<li>Привлечь дополнительную прибыль за счет монетизации видеопотока.</li>
-						</ul>							
-                	</div>
-                </div>
                 
-                	<div class="grid-description clearfix">
+                <div class="services-list">
+                	<div class="clearfix">
                 		<div class="col-sm-4 item-col">
-                			<div class="image"><img src="uploads/group-people.png" alt=""></div>
-                			<p>Расширение аудитории. Вашу онлайн-трансляцию смогут увидеть тысячи пользователей сети Интернет.	 </p>
+                			<div class="base">
+                				<span class="name">Интеграция видеосистем </span>
+								<div class="image"><span class="content"><img src="uploads/vid1.jpg" alt=""></span></div>
+								<span class="name text-left">Полный цикл работ:</span>
+								<ul>
+									<li>Проектирование систем онлайн-видеовещания;</li>
+									<li>Комплексная поставка оборудования онлайн-видеовещания;</li>
+									<li>Монтаж оборудования, настройка программного обеспечения;</li>
+									<li>Дальнейшие обслуживание и поддержка;</li>
+									<li>Разработка систем видеовещания по запросу.</li>
+								</ul>
+								<div class="block-btn clearfix"><a href="" class="btn btn-default pull-left">Подробнее</a><a href="" class="btn btn-primary pull-right">Заказать</a></div>
+                			</div>
                 		</div>
                 		<div class="col-sm-4 item-col">
-                			<div class="image"><img src="uploads/group-clouds.png" alt=""></div>
-                			<p>Высокая стабильность при минимальной задержке благодаря облачной сети вещания </p>
+                			<div class="base">
+								<span class="name">Услуги видеохостинга и CDN </span>
+								<div class="image"><span class="content"><img src="uploads/vid2.jpg" alt=""></span></div>
+								<span class="name text-left">Преимущества</span>
+								<ul>
+									<li>Стабильность при высокой нагрузке</li>
+									<li>Высокое качество</li>
+									<li>Управление авторизованным доступом</li>
+									<li>Адаптивное вещание</li>
+									<li>Система "видео по запросу"</li>
+									<li>Система монетизации видео "Videoticket"</li>
+								</ul>
+								<div class="block-btn  clearfix"><a href="" class="btn btn-default pull-left">Подробнее</a><a href="" class="btn btn-primary pull-right">Заказать</a></div>
+                			</div>
                 		</div>
                 		<div class="col-sm-4 item-col">
-                			<div class="image"><img src="uploads/group-fullHd.png" alt=""></div>
-                			<p>Высокая стабильность при минимальной задержке благодаря облачной сети вещания </p>
-                		</div>
-                		<div class="col-sm-4 item-col">
-                			<div class="image"><img src="uploads/group-disc.png" alt=""></div>
-                			<p>Запись видеопотока трансляции, доступность для последующего просмотра в Интернете на видеохостинге</p>
-                		</div>
-                		<div class="col-sm-4 item-col">
-                			<div class="image"><img src="uploads/group-promo.png" alt=""></div>
-                			<p>Создание промо-сайта для вашей трансляции с коротким адресом</p>
-                		</div>
-                		<div class="col-sm-4 item-col">
-                			<div class="image"><img src="uploads/group-comment.png" alt=""></div>
-                			<p>Обратная связь: зрители могут задавать вопросы в режиме онлайн</p>
-                		</div>
-                		<div class="col-sm-4 item-col">
-                			<div class="image"><img src="uploads/group-device.png" alt=""></div>
-                			<p>Поддержка всех современных устройств и платформ, включая мобильные</p>
-                		</div>
-                		<div class="col-sm-4 item-col">
-                			<div class="image"><img src="uploads/group-money.png" alt=""></div>
-                			<p>Получение дохода с трансляции через систему монетизации видео VideoTicket</p>
-                		</div>
-                		<div class="col-sm-4 item-col">
-                			<div class="image"><img src="uploads/group-grunt.png" alt=""></div>
-                			<p>Оборудование MMVS обладает Международным</p>
+                			<div class="base">
+                				<span class="name">Онлайн-видеонаблюдение</span>
+								<div class="image"><span class="content"><img src="uploads/vid3.jpg" alt=""></span></div>
+								<span class="name text-left">Перспективы внедрения:</span>
+								<ul>
+									<li>Онлайн-видеонаблюдение за одним или
+	несколькими объектами;</li>
+									<li>Интернет-ресурс, предоставляющий
+	доступ к онлайн-видео и видеоархиву на свободной или платной основе</li>
+									<li>Дополнительно возможно развитие функционала обработке и анализу видеоданных (распознавание номеров, учет количества объектов) и внедрению системы типа «Безопасный город».</li>
+								</ul>
+								<div class="block-btn  clearfix"><a href="" class="btn btn-default pull-left">Подробнее</a><a href="" class="btn btn-primary pull-right">Заказать</a></div>
+                			</div>
                 		</div>
                 	</div>
-                
-                <div class="broadcast">
-                	<div class="title">Стоимость организации онлайн-трансляции</div>
-                	<div class="clearfix content">
-                		<div class="base-scroll">
-                			<div class="col-sm-4 item-col item1">
-                			<span class="title-small empty"></span>
-                			<ul class="character">
-                				<li>
-                					<p>Количество видеокамер</p>
-                				</li>
-                				<li>
-                					<p>Продолжительность</p>
-                				</li>
-                				<li>
-                					<p>Онлайн-монтаж</p>
-                				</li>
-                				<li>
-                					<p>Онлайн-монтаж</p>
-                				</li>
-                				<li>
-                					<p>Вставка на ваш сайт</p>
-                				</li>
-                				<li>
-                					<p>Онлайн-аудитория, чел.</p>
-                				</li>
-                				<li>
-                					<p>Подключение презентации</p>
-                				</li>
-                				<li>
-                					<p>Функция перемотки видео</p>
-                				</li>
-                				<li>
-                					<p>Видеозапись трансляции</p>
-                				</li>
-                				<li>
-                					<p>Онлайн-чат</p>
-                				</li>
-                				<li>
-                					<p>Продвижение MMVS*</p>
-                				</li>
-                				<li>
-                					<p>Стоимость, руб.</p>
-                				</li>
-                				<li>
-                					<p>Дополнительное время(4ч), руб. </p>
-                				</li>
-                				<li>
-                					<p>Дополнительный 1 день, руб. </p>
-                				</li>
-                				<li>
-                					<p>Расширенная аудитория, руб. </p>
-                				</li>
-                				<li>
-                					<p>Дополнительная видеокамера, руб. </p>
-                				</li>
-                			</ul>
-                		</div>
-                		<div class="col-sm-2 item-col item2">
-                			<div class="base">
-                				<span class="title-small">лайт</span>
-								<ul class="side">
-									<li>1</li>
-									<li>4 час.</li>
-									<li class="absent"></li>
-									<li class="present"></li>
-									<li>до 500</li>
-									<li>Full HD</li>
-									<li class="absent"></li>
-									<li class="absent"></li>
-									<li class="present"></li>
-									<li class="absent"></li>
-									<li class="absent"></li> 
-									<li class="price">30 000</li>
-									<li class="price">5 000</li>
-									<li class="price">10 000</li>
-									<li>договорная</li>
-									<li class="price">15 000</li>
-								</ul>  
-                			</div>              			
-                		</div>
-                		<div class="col-sm-2 item-col item3">
-                			<div class="base">
-                				<span class="title-small">Стандарт</span>
-								<ul class="side">
-									<li>2</li>
-									<li>4 час.</li>
-									<li class="present"></li>
-									<li class="present"></li>
-									<li>до 500</li>
-									<li>Full HD</li>
-									<li class="present"></li>
-									<li class="present"></li>
-									<li class="present"></li>
-									<li class="present"></li>
-									<li class="absent"></li> 
-									<li class="price">45 000</li>
-									<li class="price">10 000</li>
-									<li class="price">25 000</li>
-									<li>договорная</li>
-									<li class="price">10 000</li>
-								</ul>    
-                			</div>             			
-                		</div>
-                		
-                		<div class="col-sm-2 item-col item4">
-                			<div class="base">
-                				<span class="title-small">профи</span>
-								<ul class="side">
-									<li>3</li>
-									<li>4 час.</li>
-									<li class="present"></li>
-									<li class="present"></li>
-									<li>до 1000</li>
-									<li>Full HD</li>
-									<li class="present"></li>
-									<li class="present"></li>
-									<li class="present"></li>
-									<li class="present"></li>
-									<li class="absent"></li> 
-									<li class="price">60 000</li>
-									<li class="price">15 000</li>
-									<li class="price">30 000</li>
-									<li>договорная</li>
-									<li class="price">10 000</li>
-								</ul>  
-                			</div>               			
-                		</div>
-                		
-                		<div class="col-sm-2 item-col item5">
-                			<div class="base">
-                				<span class="title-small">промо</span>
-								<ul class="side">
-									<li>1</li>
-									<li>3 час.</li>
-									<li class="absent"></li>
-									<li class="absent"></li>
-									<li>до 300</li>
-									<li>HD</li>
-									<li class="absent"></li>
-									<li class="absent"></li>
-									<li class="absent"></li>
-									<li class="absent"></li>
-									<li class="present"></li> 
-									<li class="price">18 000</li>
-									<li class="price">4 000</li>
-									<li class="price">8 000</li>
-									<li>договорная</li>
-									<li class="price">15 000</li>
-								</ul> 
-                			</div>                			
-                		</div>
-                		</div>
-                	</div>
-                	<div class="block-btn">
-                		<a href="#callAnswer" data-effect="mfp-move-horizontal"  class="call btn btn-primary">Запросить консультацию</a>
-                	</div>
-                </div>                                                              
+                </div>                                                                              
             </div>
         </section>
-        
-		<section class="row section slide3">
+		 
+		 <section class="row section slide3">
             <div class="container">
                 <div class="suggestions">
                 	<h4 class="title">Предложения:</h4>
@@ -531,17 +315,17 @@
                 	<p>Оставьте заявку и мы свяжемься с вами</p>
                 	<div class="clearfix">
                 		<form class="call-back-form">
-							<div class="col-sm-3"><input type="text" class="text-empty" required=""  name="fullName" placeholder="Введите ваше имя"></div>
-							<div class="col-sm-3"><input type="tel" class="text-empty"  required=""  name="phone" placeholder="Введите телефон"></div>
-							<div class="col-sm-3"><input type="text" class="text-empty" required=""  name="email" placeholder="Введите email"></div>
+							<div class="col-sm-3"><input type="text" class="people text-empty" required=""  name="people" placeholder="Введите ваше имя"></div>
+							<div class="col-sm-3"><input type="tel" class="phone text-empty"  required=""  name="phone" placeholder="Введите телефон"></div>
+							<div class="col-sm-3"><input type="text" class="email text-empty" required=""  name="email" placeholder="Введите email"></div>
 							<div class="col-sm-3"><button type="submit">Оставить заявку</button></div>
 						</form>
-                	</div>                	
+                	</div>     
                 </div>
             </div>
-        </section>    
-        
-        <footer class="row">
+        </section> 
+                  
+         <footer class="row">
               <div class="panel">
 					<div class="container clearfix">
 						<div class="col-xs-2 item-col"><a class="navbar-brand" href="index.html"></a></div>
@@ -585,7 +369,7 @@
 						</div>
 					</div>
                </div>
-        </footer>  
+        </footer> 
 </div>          
 
         <script src="libraries/jquery.min.js"></script>        
