@@ -40,7 +40,8 @@
 	.navbar-toggle span{
 		background: #16b4df;
 	}
-    .navbar-header { float: none; }
+	.navbar-header{ float: none; }
+	footer .navbar-header{ float: left; }
     .navbar-collapse.collapse {        
         overflow: hidden!important;
 		height: 0;
@@ -65,17 +66,20 @@
 		background-color: #00bff3;
 	}
 	
+	nav.fix .navbar-nav>li>a {
+		color: white;
+	}
 	
 }
 
 @media only all and (max-width: 1024px){
-	.navbar-nav>li>a{ padding: 0 20px;}
+	.navbar-nav>li>a{ padding: 0 10px;}
 	header .main-block {
 		padding: 70px 0 0 0;
 	}
-	.video-sistem .item-col {
-    	width: 156px;
-	}
+	.video-sistem{ padding: 0;}
+	.video-sistem .item-col{ width: 33%;}
+	
 	.slide2:before{
 		background-size: 1500px;
 	}
@@ -99,6 +103,17 @@
 	.aboutCompany .icon2:before{
 		top: -23px;
 	}
+	
+	.devices-detail .btn {
+		max-width: 140px;		
+	}
+	.devices-detail .base {		
+		max-width: 300px;
+	}
+	.sheme .base {
+		max-width: 690px;
+	}
+	
 	.organization {
     	max-width: 740px;
 	}
@@ -117,11 +132,33 @@
 	.broadcast .item4,
 	.broadcast .item5{ margin-left: 15px;}
 	
-	footer .navbar-nav{ max-width: 560px;}
+/*	footer .navbar-nav{ max-width: 560px;}*/
 	footer .navbar-nav>li>a{ padding: 0 10px;}
+
+	.our-services .base {
+		max-width: 570px;
+	}
+	.devices-detail .title-small{
+		padding: 0;
+	}
 	
 }
+
+@media only all and (max-width: 1024px) and (min-width: 768px){
+	header .main-block {
+    	padding-top: 20px!important;
+	}
+	.not-main .our-projects {
+    	margin-top: 0!important;
+	}
+	.our-projects {	 
+		margin: 0;
+		float: none;
+	}
+}
+
 @media only all and (max-width: 768px){
+	.slide2 .container:before{ content:none; }
     .detail {
 		right: 309px;
 		top: 70px;
@@ -148,7 +185,8 @@
 		font-size: 44px;
 	}
 	header .main-block{
-		width: 65%;
+		width: 100%;
+		float: none;
 		padding-top: 30px;
 	}
 	.video-sistem {
@@ -180,18 +218,8 @@
 	.grid-description .item-col {
 		width: 50%;
 	}
-/*
-	.grid-description .item-col:nth-child(7),
-	.grid-description .item-col:nth-child(8),
-	.grid-description .item-col:nth-child(9){ border-bottom: none;}
-*/
 	.grid-description .item-col{ border: 1px solid #efefef!important; }
-	
-/*
- 	.grid-description .item-col:nth-child(7),
-	.grid-description .item-col:nth-child(8),
-	.grid-description .item-col:nth-child(9){ border-bottom: 1px solid #efefef; }
-*/
+
 	.grid-description .item-col:nth-child(1){ border-top-color: transparent!important;}
 	.grid-description .item-col:nth-child(2){ border-top-color: transparent!important;}
 	.grid-description .item-col:nth-child(2n+2){ padding:0 0 0 15px; border-right: none!important; }
@@ -222,8 +250,25 @@
 		width: 100%;
 		padding-top: 10px;
 	}
-	.video-sistem{ padding: 0;}
-	.video-sistem .item-col{ width: 33%;}
+	.video-sistem .item-col{ float: left;}
+	.not-main .main-block{ 
+		float: none!important;
+		padding-top: 10px!important;	
+		float: none;
+	}
+	.not-main .our-projects {	
+			float: none;
+    		margin: 0 auto;			
+			margin-top: 20px!important;		
+			border: 2px solid #51cef7!important;
+	}
+	.not-main .our-projects .title-small{
+			line-height: 40px;
+			color: #51cef7;
+		}
+	.not-main .our-projects p{
+		color: #51cef7;		
+	}	
 }
 
 
@@ -232,7 +277,15 @@
 	.slick-prev.slick-arrow{ left: 0;}
 }
 
-@media only all and (max-width: 400px){  
+@media only all and (max-width: 415px){  
+	
+	@media only all and (min-width: 375px){
+		.mobile .aboutCompany .block.item2 .title{ line-height: 65px;}
+	}
+	
+	footer .item-col:last-child{ display: none;}
+	.broadcast .item-col{ float: left;}
+	
 	 .grid-description .item-col {
 		width: 100%;		
 		border: none;
@@ -254,11 +307,11 @@
 	.services-list ul{ min-height: 0;}
 	.services-list .block-btn{ margin: 30px 0;}
 	.broadcast .title {
-		line-height: 40px;
+		line-height: 40px!important;
 		margin: 15px 0;
 		font-size: 22px;
 	}
-	.broadcast .content{ width: 370px; position: relative; overflow: scroll;}
+	.broadcast .content{ max-width: 320px; width: 100%; position: relative; overflow: scroll; margin: 0;}
 	.broadcast .item-col{ float: left;}
 	.broadcast .item1 {
 		width: 285px;
@@ -269,7 +322,7 @@
 	.broadcast .block-btn .btn{ float: none;}
 	footer{ padding-bottom: 15px;}
 	footer .panel{ padding: 0 10px;}
-/*	footer .item-col:last-child{ display: none;}*/
+
 	footer .base {
 		line-height: 0;
 		height: auto;
@@ -355,5 +408,8 @@
 	
 	.aboutCompany .block.item2 .title {    	
     	line-height: 65px;
+	}
+	.broadcast .block-btn .btn {
+    	max-width: 300px;
 	}
 }

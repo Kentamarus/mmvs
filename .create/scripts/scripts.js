@@ -1,16 +1,20 @@
 $(function(){    
     Browser.init();
+    Browser.orientation();	
     Site.init();     
+});
+
+//$(window).resize(function() {
+//	location.reload();	
+//});
+
+$(window).on( "orientationchange", function( event ) {
+  Browser.orientation();
 });
 
 $(window).scroll(function() {
 	var obj = $("nav");
-	($(this).scrollTop()> 50) ? obj.addClass("fix") : obj.removeClass("fix");
-	
-//	var a = "active";
-//	var li = $(".nav li").removeClass(a);
-//	li.filter("[data-start]").addClass(a);
-	
+	($(this).scrollTop()> 50) ? obj.addClass("fix") : obj.removeClass("fix");	
 });
 
 $(window).load(function() {
@@ -80,13 +84,20 @@ var Site = new function () {
 		var clazz = "active";
 		var item = $(".our-services .item-col");
 		item.hover(function() {
-            var t = $(this).find(".image img");
-            t.attr("src", t.data("hover"));
+            var t = $(this).find(".image img");            			
+			if (t.closest(".item-col").hasClass(clazz)) return;
+			t.fadeOut('fast', function(){
+				t.attr("src", t.data("hover"));
+				t.fadeIn('fast');
+			});
         }, function() {
             var t = $(this);
-			if (t.hasClass(clazz)) return;
-			t = t.find(".image img");
-            t.attr("src", t.data("load"));
+			if (t.closest(".item-col").hasClass(clazz)) return;
+			t = t.find(".image img");            
+			t.fadeOut('fast', function(){
+				t.attr("src", t.data("load"));
+				t.fadeIn('fast');
+			});
 		});
 		 
 		 var _ = item.filter("."+clazz);
@@ -124,7 +135,7 @@ var Site = new function () {
 			t.closest(".nav").find("li").removeClass(a);
 			t.parent().addClass(a);
 			
-			if ($("body").hasClass("mobile")){
+			if ($("#navbar").hasClass("in")){
 				var sub = t.parent().find(".submenu");
 				  if  (sub.length>0){ 
 				  	sub.show();
@@ -303,18 +314,18 @@ var Browser = new function() {
     };
     this.viewPort = function() {
         var def = document.querySelector("meta[name=viewport]");
-        var view = "<meta name='viewport' content='width=399'>";
+        var view = "<meta name='viewport' content='width=device-width'>";
         if (def != null) {            
             if (this.isIpad()) { 
                 def.remove();
                 view = '<meta name="viewport" content="maximum-scale=1.0, initial-scale=1.0, user-scalable=0">';
             } 
-//            else 
-//                if (this.isIPhone())
-//                    {
-//                        def.remove();
-//                        view = '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">';
-//                    }
+            else 
+                if (this.isAndroid())
+                    {
+                        def.remove();
+                        view = '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">';
+                    }
         };     
         jQuery('head').append(view);
     }

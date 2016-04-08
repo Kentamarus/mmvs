@@ -277,7 +277,7 @@ header .title span{ font-size: 60px; display: block;}
     left: 0;
     width: 100%;
     top: 185px;
-    background-image: url(../images/lines.png);
+    background-image: url(../images/lines.png); 
 	background-repeat: no-repeat;
     background-position: center top;
     position: absolute;
@@ -306,15 +306,6 @@ header .title span{ font-size: 60px; display: block;}
 	background-position: right top;
 	right: -29px;
 }
-
-/*services*/
-.services{
-	margin-top: -200px;
-}
-.services .title{
-	line-height: 82px;
-}
-/*services========*/
 
 .title,
 .title-small{

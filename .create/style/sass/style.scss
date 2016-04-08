@@ -33,7 +33,7 @@ $borderGray: 2px solid #efefef;
 	display: block;
 }
 
-@mixin itemCenter{
+@mixin itemCenter{ 
 	background-repeat: no-repeat;
 	background-position: center;
 }
@@ -183,15 +183,15 @@ body{
 	}
 }
 
-footer{ 
-	height: 149px;
+footer{  
+	height: 149px; 
 	@include bgWhite();
 	
-	.panel{
+	.panel{ 
 		min-height: 90px;
 		background: #1e8acd;	 
 		border-radius: 0;
-		padding: 0 30px;
+		padding: 0;
 		overflow: visible;
 		position: relative;
 		margin-bottom: 0!important;
@@ -201,9 +201,14 @@ footer{
 			background-repeat: no-repeat;
 			width: 162px;
 			height: 90px;
-			margin-left: 15px!important;
 		}
-		.navbar-header{ margin: 0; float: left; }
+		.navbar-nav {
+			float: none;
+			max-width: 765px; 
+			padding: 0;
+			margin: 0 0 0 -10px; 
+		}
+		
 //		.item-col:first-child{ min-width: 201px; }
 //		.navbar-nav{
 //			margin: 0; max-width: 100%;
@@ -221,8 +226,10 @@ footer{
 		background-position: center;
 		width: 219px;
 		height: 104px;
-		margin-left: 0!important; 
+		&.bottom{ margin-left: 0px!important;}
 	}
+	
+	
 	.will-call { 
 		margin-top: 18px;
 		p.phone{
@@ -240,10 +247,11 @@ footer .base{
 	line-height: 104px;
 	height: 104px;
 }
-
+ 
 footer .navbar-nav>li>a{ 
 	color: #98b3bf;
 }
+footer .navbar-nav>li.active>a,
 footer .navbar-nav>li>a:hover{
 	color: white; 
 }  
@@ -269,24 +277,23 @@ address{
 	float: right;
 	margin-right: 0;
 	padding: 0;
-	text-align: right;
+	text-align: right; 
 }
 .network {
 	ul {
 		margin-top: 35px;
 		display: block;
-	}
-	ul li{
-		float: right;		
-		line-height: 28px;
-	}
-	a{
-		float: right; 
-		margin-left: 12px;
-		line-height: 28px;
-	}
-	a.facebook{
-	}
+		padding: 0;
+		li{
+			float: right;		
+			line-height: 28px;
+			a{
+				float: right;  
+				margin-left: 12px;
+				line-height: 28px;
+			}
+		}
+	}	
 }
 
 .network p{} 
@@ -294,13 +301,6 @@ address{
 footer .will-call p.phone{
 	color: #98b3bf;
 }
-footer .navbar-nav {
-    float: none;
-	max-width: 765px; 
-    padding: 0;
-    margin: 0 0 0 171px; 
-}
-
 
 
 /*.sheme*/
@@ -608,41 +608,52 @@ footer .navbar-nav {
 	padding-top: 134px;
 	
 	.content{ z-index: 150;}
-	
-	.item-col{
-		border: 2px solid #efefef;
-		height: 150px;	 
+		
+	.item-col{		
+		height: 170px;	 
 		position: relative; 
 		margin-left: -1px;
 		padding: 0;
 		min-width: 190px;
 		max-width: 190px;
 		float: left;
-		margin-bottom: 25px;
+		overflow: hidden;
+		margin-bottom: 25px; 
 		transition: 0.5s ease;
+		a {
+			display: block;
+			.inner{
+				height: 150px;
+				border: 2px solid #efefef;
+			}
+			
+			.content{ 				
+				z-index: 35;
+			}
+			.image{
+				padding: 30px 0 0 15px;
+				height: 70px;
+			}
+			.image-hover{
+				display: block;
+				position: absolute;
+				left: -191px;
+				top: 0;
+				width: 191px;
+				height: 170px;
+				z-index: 30;
+				transition: 0.5s ease;
+			}	
+		}
 	}
-	 p{ @include descriptionDark(); padding-left: 15px;}
-	.image{
-		padding: 30px 0 0 15px;
-		height: 70px;
-	}
-	.image-hover{
-		display: none;
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 191px;
-		height: 170px;
-		z-index: 30;
-		transition: 0.5s ease;
-	}	
-	
-	
+	p{ @include descriptionDark(); padding-left: 15px;}
+		
 	.item-col.active p{ color: white; }		
 	
 	.item-col.active .image-hover,
 	.item-col:hover .image-hover{		
-		display: block;
+		display: block;		
+		left: 0;		
 	}
 	
 	.item-col.active{
@@ -739,12 +750,12 @@ footer .navbar-nav {
 		text-align: right;
 		margin-top: 30px; 
 		
-		.btn{
+		.btn{ 
 			max-width: 350px;
 			color: white!important; 			
 			text-transform: uppercase;
 			padding: 0;
-			line-height: 50px;
+			line-height: 50px; 
 			height: 50px;
 			border: none; 
 			border-radius: 10px;
@@ -971,12 +982,163 @@ nav.fix li ul.submenu{ top: 91px; }
 }
 
 
+.navbar-collapse.in{
+	background: #0b0b0b;
+	opacity: 0.8;
+}
+
+
+.in .nav{
+	margin: 0;
+	li
+		{
+			a{
+				line-height: 30px;
+			}
+			ul.submenu{
+				display: none;
+				position: relative;
+				left: inherit;
+				top: inherit;
+				width: 100%;
+				background: transparent;
+				border-radius: 0 0 10px 10px;
+				padding: 0;
+				box-shadow: none;
+
+				&:before{ display: none;}
+				li{
+					padding: 0;
+					&:before{ content: none;}
+					a{
+						font-family: OpenSans-Bold;
+						display: inline-block;
+						font-size: 16px;
+						color: #fff;				
+						line-height: 30px;
+						text-align: center;
+					}
+				}	
+			}
+		}
+}
+
+
 .mobile{
-	.slide2 .container:before{ display: none;}
-	.video-sistem .item-col .base {
-    	width: 130px;
+	.navbar-toggle{ margin-top: 35px;}
+	.navbar-brand {
+		width: 162px;
+		height: 80px;		
+		margin: 10px 0 0 15px!important;
 	}
+	nav 
+	{
+		p.phone b{ color: #10b8f4; }
+		.navbar-toggle{ margin-right: 15px;}
+	}
+	
+	.services-list .image .content {		
+		max-width: 330px;
+		margin: 0 auto;
+		display: block;
+	}
+		
+	.devices .image{
+		max-width: 100%;
+	}
+	.devices-detail {    	
+		padding: 0 15px;
+		.title-small{		
+			padding: 0px;
+		}
+	}
+	 
+	.devices .title-small,		 
+	.suggestions { 
+		margin-bottom: 20px; 
+		.title {
+			line-height: 120px;		 
+		}
+	}
+	.aboutCompany {
+		.block{
+			p{ font-size: 14px;}
+			&.item2 .title{ line-height: 30px;}
+		}
+	}  
+	.our-service .image-hover{ display: none!important;}
+	
+	.devices .title-small,
+	.title{ line-height: 30px;}
+	.services{
+		.title{ line-height: 82px;}
+	}
+
+	header{
+		.main-block{
+			padding-top: 25px;
+		}
+		.title{
+			font-size: 20px;
+			span {
+				font-size: 27px;
+			}
+		}
+		.video-sistem .image{
+			height: 75px;
+		}
+	}	
+	.video-sistem .item-col{
+		 width: 100%; 
+		 .base {
+			width: 100%;
+			min-height: 0;
+			 p{
+				 padding-bottom: 10px;
+			 }
+		}
+	}	
+	
+	.call-back {
+		.title {
+			padding: 0 30px;
+		}
+		p {
+			line-height: 30px;
+			padding: 0 40px;
+			margin: 15px 0;			
+		}
+	}
+	.aboutCompany {
+		padding-top: 30px;
+	}
+	
+	.navbar .container{ padding: 0;}
+	
+	nav .will-call{
+		margin: 0;
+		position: absolute; 
+		float: right;
+		left: 15px;
+		top: 0;
+		right: 5px;
+		
+		
+		p{ 
+			float: left;
+			font-size: 13px;
+			line-height: 30px;
+			height: 30px;
+			display: inline-block;    				
+			&:last-child{
+				float: right;
+			}
+			&.ico{ padding-left: 20px;}
+		}
+	}
+	
 	.slide2 {
+		.container:before{ display: none;}
     	margin-top: -170px;
 		padding-top: 10px;
 	}
@@ -986,25 +1148,50 @@ nav.fix li ul.submenu{ top: 91px; }
 		min-height: 0;
 		margin-top: 0;
 		padding-top: 40px;
-	}
+	} 
 	.call-back{
 		.text-empty{ margin-bottom: 15px; max-width: 100%;}
 		button{ margin: 0 auto; display: block;}
 	}
 	footer {
-		.panel .item-col-middle{ width: auto;}
-		.panel .item-col,
-		.panel .container{ padding: 0;}
-		.will-call{ width: 180px;}
+		.panel{
+			padding: 0;
+			.item-col{ padding: 0px;}
+			.item-col-middle{ width: auto;}
+			.container{ padding: 0 5px;}
+			.navbar-brand{ background-size: 100%; width: 130px;}
+			.will-call {
+				position: absolute;
+				right: 0; 
+				width: 170px;
+				p.phone b {
+					font-size: 17px;
+				}
+				.ico-phone { padding-left: 20px;}
+			}
+		}
+		.navbar-brand {
+			margin: 0 auto!important;
+			display: block;
+			float: none;
+		}
+		.will-call{
+			width: 180px;
+			p{
+				font-size: 16px;
+				&a{ font-size: 16px;}
+			}
+		}
 		.network{ display: none;}
 	}
 	ul.nav{ margin: 0; }
-	  
+	
+	
 	.nav li a{
 		line-height: 30px; 
 	}
 	.nav li ul.submenu{
-		display: none;
+		display: block;
 		position: relative;
 		left: inherit;
 		top: inherit;
@@ -1028,14 +1215,13 @@ nav.fix li ul.submenu{ top: 91px; }
 			}
 		}	
 	}
-	header .container{ padding: 0;}
-	.video-sistem {
-		p{ font-size: 14px;}	
-		.item-col .base{ min-height: 165px;}
-	}	
+	header .container{ padding: 0;} 
+	.video-sistem { 
+		p{ font-size: 14px;}	 
+	}	 
 			
 	&.not-main header {
-		min-height: 520px;
+		min-height: 520px; 
 		
 		.title{
 			font-size: 25px!important;
@@ -1045,20 +1231,22 @@ nav.fix li ul.submenu{ top: 91px; }
 			padding-top: 10px!important;	
 			float: none;
 		}
-		.our-projects {
-			margin-top: 20px;			
-			float: none;
-    		margin: 0 auto;
+		.our-projects {	
+			float: none; 
+    		margin: 0 auto;			
+			margin-top: 20px;		
+			border: 2px solid #51cef7;
 			
 			.title-small{
-				line-height: 40px;
+				line-height: 40px; 
+				color: #51cef7; 
+			}
+			p{
+				color: #51cef7; 
 			}
 		}		
-	}
-	.navbar-collapse.in{
-		background: #0b0b0b;
-		opacity: 0.8;
-	}
+	} 
+	
 	nav.fix .navbar-nav>li>a {
     	color: white;
 	}
@@ -1074,19 +1262,52 @@ nav.fix li ul.submenu{ top: 91px; }
 			}
 		}		
 	}
-	.our-services .item-col{
-		width: 50%;
-		max-width: 50%;
-		float: left;
-		a{
-			width: 190px;
-			height: 170px;
-			margin: 0 auto;
-			display: block;
+	
+	.detail{ display: none;}
+	.our-projects {	
+		margin: 0 auto;
+		float: none;
+	}
+	
+	.grid-description{ padding: 0 15px;} 
+	.grid-description .item-col {
+		$colorBorder: #efefef;
+		padding: 0!important;		
+		border: none!important;
+		border-bottom: 1px solid $colorBorder!important; 
+	}
+}
+
+
+//.mobile .video-sistem .item-col {
+//    width: 33%;
+//    float: left;
+//}
+
+@media only all and (max-width: 640px){
+	.our-services {
+		.item-col{		
+			a{
+				width: 190px;
+				height: 170px;
+				margin: 0 auto;
+				display: block;
+				.image-hover{ display: none;}				
+				.item-col:hover{
+					p{ color: #242424; }	 
+				}
+			}
 		}
 	}
 }
 
+
+.iPhone{
+	.navbar-brand {
+		width: 130px;
+		background-size: 100%;
+	}	
+}
 
 .iPad{
 	.slide2 .container:before{ 
@@ -1105,45 +1326,16 @@ nav.fix li ul.submenu{ top: 91px; }
 		 .will-call {			
 			margin-right: 30px;
 		}
-	}
-	ul.nav{ margin: 0; }
+	}	
 	
-	.nav li a{
-		line-height: 30px;
-	}
-	.nav li ul.submenu{
-		&:before{ display: none;}
-		li{
-			padding: 0;
-			&:before{ content: none;}
-			a{
-				font-family: OpenSans-Bold;
-				display: inline-block;
-				font-size: 16px;
-				color: #fff;				
-				line-height: 30px;
-				text-align: center;
-			}
-		}	
-	}
+	
+	
 	header .container{ padding: 0;}
 	.video-sistem {
 		p{ font-size: 14px;}	
 		.item-col .base{ min-height: 165px;}
 	}	
-	
-	.nav li ul.submenu {
-		display: block;
-		position: relative;
-		left: inherit;
-		top: inherit;
-		width: 100%;
-		background: transparent;
-		border-radius: 0 0 10px 10px;
-		padding: 0;
-		box-shadow: none;
-	}
-	
+		
 	&.not-main header {
 		min-height: 520px;
 		
@@ -1170,6 +1362,20 @@ nav.fix li ul.submenu{ top: 91px; }
 	nav.fix .navbar-nav>li>a {
     	color: white;
 	}
+	
+	.mobile.not-main header .title {
+    	font-size: 20px!important;
+	} 
+	
+	
+}
+
+@media only all and (max-width: 400px){
+	.Android{		
+		.grid-description{
+			padding: 0 15px;
+		}
+	}	
 }
 
 .detail{
@@ -1186,3 +1392,150 @@ nav.fix li ul.submenu{ top: 91px; }
 		&:hover{ text-decoration: underline;}
 	}
 }
+/*services*/
+.services{
+	margin-top: -200px;
+	.title{
+		line-height: 82px;
+	}
+}
+/*services========*/
+
+
+
+	.mobile.orX .aboutCompany .block.item2 .title{ line-height: 65px;}
+	
+	.mobile.orX .sheme .item-col {
+		float: left;
+		width: 210px;
+	}
+	.mobile.orX footer .item-col:last-child{ display: none;}
+	.mobile.orX .broadcast .item-col{ float: left;}
+	
+	 .mobile.orX .grid-description .item-col {
+		width: 100%;		
+		border: none;
+		min-height: 115px;
+		border-bottom: 1px solid #efefef!important;
+	}   
+	.mobile.orX .devices .title-small {
+		line-height: 40px;
+		padding-bottom: 20px;
+	}
+	.mobile.orX .services-list .block-btn .btn:first-child{
+		float: left!important;		
+	}
+	.mobile.orX .services-list .block-btn .btn:last-child{
+		float: right!important;		
+	}
+	.mobile.orX .services-list .name {
+    	font-size: 20px;
+	}
+	.mobile.orX .services-list ul{ min-height: 0;}
+	.mobile.orX .services-list .block-btn{ margin: 30px 0;}
+	.mobile.orX .broadcast .title {
+		line-height: 40px!important;
+		margin: 15px 0;
+		font-size: 22px;
+	}
+	.mobile.orX .broadcast .content{ max-width: 100%; width: 100%; position: relative; overflow: scroll; margin: 0;}
+	.mobile.orX .broadcast .item-col{ float: left;}
+	.mobile.orX .broadcast .item1 {
+		width: 285px;
+	}
+	.mobile.orX .broadcast .base-scroll{ width: 980px;}
+
+	.mobile.orX .broadcast .block-btn{ text-align: center;}
+	.mobile.orX .broadcast .block-btn .btn{ float: none;}
+	.mobile.orX footer{ padding-bottom: 15px;}
+	.mobile.orX footer .panel{ padding: 0 10px;}
+
+	.mobile.orX footer .base {
+		line-height: 0;
+		height: auto;
+	}
+	.mobile.orX .devices .title-small,
+	.mobile.orX .grid-description{ margin-top: 0;}
+	
+	.mobile.orX .slide2{
+		margin-top: -110px;
+    	padding-top: 50px;
+		background: #00b7f4;
+	}
+	.mobile.orX .detail {
+		right: inherit;
+		top: 50px;
+		font-size: 0;
+		left: 17px;
+		width: 30px;
+	}
+	.mobile.orX .aboutCompany .block .title {
+		font-size: 29px;
+		line-height: 40px;
+		margin-bottom: 15px;
+	}
+	.mobile.orX .organization {
+		max-width: 470px;
+		margin: 0 auto;
+		margin-right: 45px;
+	}
+	.mobile.orX .services {
+		margin-top: 0;
+	}
+	.mobile.orX .our-services {
+		padding-top: 0;
+	}
+	
+	.mobile.orX .our-services .item-col{
+		margin: 0 auto;
+		float: none;
+    	margin-bottom: 20px;
+	}
+	
+	.mobile.orX .main{ padding: 0 5px;}
+	.mobile .main .row{ 
+		margin-left:-5px;
+		margin-right:-5px;
+	}
+	.mobile nav .navbar-brand{
+		margin-left: 5px!important;
+	}
+	.mobile nav .navbar-toggle{
+		margin-right: 5px; 
+	}
+	.mobile nav .will-call {
+		margin-right: 55px;
+	}
+
+	.mobile .aboutCompany .title{ font-size: 20px; }	
+	.mobile .aboutCompany .block .title {
+		font-size: 22px;
+		line-height: 30px;
+	}
+	.mobile .aboutCompany .minHeight1, 
+	.mobile .grid-description .item-col {	
+		margin-left: -65px;
+	}
+	.mobile .aboutCompany .minHeight1 .title{ margin-left: 65px;}
+	.mobile .aboutCompany .slick-prev.slick-arrow { left: 0px; }
+	.mobile .aboutCompany .slick-next.slick-arrow { right: 0px; }	
+	.mobile .organization {
+    	max-width: 320px;
+    	max-width: 240px;
+	}
+	.mobile .slide2{ min-height: 0; }
+	.mobile .grid-description .item-col{ margin-left: 0; }
+	.mobile .aboutCompany .slick-slide img{ margin: 0 auto;}
+	.mobile .aboutCompany .base-slider{ margin-left: -65px;}
+	.mobile .organization {
+		margin: 0 auto;
+		width: 320px;
+		max-width: 100%;
+	}
+	
+	.mobile .aboutCompany .block.item2 .title {    	
+    	line-height: 65px;
+	}
+	.mobile .broadcast .block-btn .btn {
+    	max-width: 300px;
+	}
