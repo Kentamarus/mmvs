@@ -41,6 +41,7 @@ nav.fix .nav>li>a:hover {
 	color: #10b8f4;
 }
 nav.fix .will-call p.phone{ color: #242424;}
+
 .navbar{ transition: 0.5s ease;}
 .navbar-nav{ text-align: center; float: none;}
 .navbar-nav>li{ display: inline-block; float: none;}
@@ -119,11 +120,22 @@ header{
 .will-call p.phone{
 	font-size: 18px;
 	color: white;
-	font-family: GothamProRegular;
+	font-family: IntroRegular;
+}
+.will-call p.phone b{
+	display: inline-block;
+	color: #10b8f4;
+	font-family: GothamProBlack;
 }
 .will-call p.phone span{
 	color: #10b8f4;
 	font-family: GothamProBlack;
+}
+.will-call .call{
+	transition: 0.5s ease;
+}
+.will-call .call:hover{
+	text-decoration: underline;
 }
 
 
@@ -145,12 +157,13 @@ header .title span{ font-size: 60px; display: block;}
 	border-radius: 10px;
 	padding: 0;
 	background-repeat: repeat;
+	transition: 0.5s ease;
 }
 .video-sistem .item-col .base{
 	width: 160px;
-	height: 150px;
-}
-.video-sistem .item-col:hover{
+	min-height: 150px;
+} 
+.video-sistem .item-col:hover{ 
 	background-image: url('../images/space.png');	
 	box-shadow: 0px 0px 15px 0px rgba(0, 1, 1, 0.6);	
 }
@@ -174,12 +187,13 @@ header .title span{ font-size: 60px; display: block;}
 }
 .our-projects .title-small{
 	line-height: 50px;
-	margin: 0 0 5px 0;
+	margin: 0 0 11px 0;
 	color: white;
 	font-size: 18px;
 	font-family: OpenSans-Bold;
 }
-.our-projects span{ display: block;
+.our-projects span{ 
+	display: block;
 	text-align: center;
 }
 .our-projects p{
@@ -188,23 +202,13 @@ header .title span{ font-size: 60px; display: block;}
 }
 .our-projects .image{	
 	min-height: 52px;
-	margin-bottom: 17px;
+	margin-bottom: 6px;
 }
 
 .text16{
 	font-family: OpenSans-Regular;
 	color: white;
 	font-size: 16px;
-}
-
-.detail{
-	position: absolute;	
-	right: 323px;
-	top: 0;
-	width: 150px;
-	height: 40px;
-	display: block;	
-	background: url('../images/arrow1.png') no-repeat center bottom;
 }
 
 .aboutCompany{

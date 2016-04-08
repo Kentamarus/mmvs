@@ -1,5 +1,5 @@
 
-@media (max-width: 1280px){
+@media only all and (max-width: 1280px){
     .aboutCompany {
     	padding-left: 65px;
 	}
@@ -14,7 +14,7 @@
 
 
 
-@media (max-width: 770px) and (min-width: 100px){
+@media only all and (max-width: 770px) and (min-width: 100px){
      .navbar-nav > li > a{ padding: 0 3px;}
     .nav {
         margin-left: 0;
@@ -34,11 +34,11 @@
     }
     .navbar-toggle {
         display: block;
-		border: 1.5px solid white;
+		border: 1.5px solid #16b4df;
 		margin-top: 26px;
     }
 	.navbar-toggle span{
-		background: white;
+		background: #16b4df;
 	}
     .navbar-header { float: none; }
     .navbar-collapse.collapse {        
@@ -57,10 +57,18 @@
 	.navbar-nav>li>a{ line-height: 50px;}
 	.will-call{ margin-right: 70px;}
 	
+	.navbar-inverse .navbar-toggle:focus,
+	.navbar-inverse .navbar-toggle:hover {
+		background-color: #16b4df;
+	}
+	.navbar-inverse .navbar-toggle {	
+		background-color: #00bff3;
+	}
+	
 	
 }
 
-@media (max-width: 1024px){
+@media only all and (max-width: 1024px){
 	.navbar-nav>li>a{ padding: 0 20px;}
 	header .main-block {
 		padding: 70px 0 0 0;
@@ -113,7 +121,7 @@
 	footer .navbar-nav>li>a{ padding: 0 10px;}
 	
 }
-@media (max-width: 768px){
+@media only all and (max-width: 768px){
     .detail {
 		right: 309px;
 		top: 70px;
@@ -209,7 +217,7 @@
 	footer .item-col:last-child{ float: right;}
 }
 
-@media (max-width: 640px){
+@media only all and (max-width: 640px){
     header .main-block {
 		width: 100%;
 		padding-top: 10px;
@@ -219,12 +227,12 @@
 }
 
 
-@media (max-width: 500px){
+@media only all and (max-width: 500px){
 	.slick-next.slick-arrow{ right: 0;}
 	.slick-prev.slick-arrow{ left: 0;}
 }
 
-@media (max-width: 400px){  
+@media only all and (max-width: 400px){  
 	 .grid-description .item-col {
 		width: 100%;		
 		border: none;

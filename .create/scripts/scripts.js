@@ -6,6 +6,19 @@ $(function(){
 $(window).scroll(function() {
 	var obj = $("nav");
 	($(this).scrollTop()> 50) ? obj.addClass("fix") : obj.removeClass("fix");
+	
+//	var a = "active";
+//	var li = $(".nav li").removeClass(a);
+//	li.filter("[data-start]").addClass(a);
+	
+});
+
+$(window).load(function() {
+	if (location.hash.length> 0)
+		{
+			var target_top= $(location.hash).offset().top;
+			$('html, body').animate({scrollTop:target_top}, 'slow');
+		}
 });
 
 jQuery.fn.hoverItem = function(options) {
@@ -42,7 +55,7 @@ jQuery.fn.hoverItem = function(options) {
 };
 
 
-var Site = new function () {
+var Site = new function () {		
 	this.sliderOrganization = function(){
 		var show_count = 5;
         if ($("body").width() > 1024) { show_count = 5; } 
@@ -87,11 +100,16 @@ var Site = new function () {
         this.sliderOrganization();
 		this.broadcast();
 		this.ourServices();
-				 
+		
+		$("a[data-rel='m_PageScroll2id']").mPageScroll2id({
+            scrollSpeed: 500,
+            offset: 100
+        });
+		
         $(".navbar-toggle").bind("click", function(e){
             e.preventDefault();
             var obj = $(this).closest(".container").find("#navbar");
-            var visible = ["0px", "200px"];
+            var visible = ["0px", "330px"];
             if (!obj.hasClass("in"))
                 {
                     obj.addClass("collapse in").animate({height:visible[1]},500);
@@ -99,7 +117,27 @@ var Site = new function () {
 
             return false;
         }); 
-         
+        
+		$(".nav li a").bind("click", function(){
+			var t = $(this);
+			var a = "active";
+			t.closest(".nav").find("li").removeClass(a);
+			t.parent().addClass(a);
+			
+			if ($("body").hasClass("mobile")){
+				var sub = t.parent().find(".submenu");
+				  if  (sub.length>0){ 
+				  	sub.show();
+					return;
+				  }
+				  sub.hide();
+				
+				  var obj = $("#navbar");
+				  var visible = ["0px", "330px"];
+				  obj.animate({height:visible[0]},500, function(){ obj.removeClass("in")});
+			}
+		});
+		
         //smooth scroll to top
 //        $(".cd-top").on('click', function(event){
 //            event.preventDefault();
@@ -182,73 +220,90 @@ var Site = new function () {
     };
 };
 
+
 var Browser = new function() {
-    this.data = {};    
+    var data = {
+        $b: null,
+        is: {
+            mobile: false,
+            Andorid: false,
+            iPod: false,
+            iPad: false
+        }
+    }
     this.getData = function() {
-        return this.data;
+        return data;
     };
     this.init = function() {
         var t = this;
-        var data = this.data;
-        
         data.$b = $("body");
-        data.navigator = navigator.userAgent.toLowerCase();
-        data.clazz = {
-            mobile : "mobile"
-        };
-        data.list = [
-            {  tool:'ipad', clazz:'iPad'},
-            {  tool:'android', clazz:'android'},
-            {  tool:'ipod', clazz:'iPod'},
-            {  tool:'iphone', clazz:'iPhone'},
-            {  tool:'firefox', clazz:'firefox'},            
-            {  tool:'msie 8.', clazz:'ie8'},
-            {  tool:'msie 9.', clazz:'ie9'},
-            {  tool:'msie 10.', clazz:'ie10'},
-            {  tool:' opr/', clazz:'opera'}            
-            ];
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.indexOf("ipad") > 0) {
+            data.$b.addClass("iPad");
+            data.is.iPad = true;
+        } else if (ua.indexOf("android") > 0) {
+            data.$b.addClass("Android");            
+            data.is.Andorid = true;
+        } else if (ua.indexOf("ipod") > 0) {
+            data.$b.addClass("iPod");            
+            data.is.iPod = true;
+        } else if (ua.indexOf("iphone") > 0) data.$b.addClass("iPhone");
+        if (ua.indexOf('firefox') > 0) {
+            data.$b.addClass("Firefox");
+        }
+        if (data.is.mobile) t.orientation();
+        if (!!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)) {
+            data.$b.addClass("Safari");
+        }
+        if (ua.indexOf('MSIE 8.') > 0) {
+            data.$b.addClass("ie8");
+        }
+        if (ua.indexOf('MSIE 9.') > 0) {
+            data.$b.addClass("ie9");
+        }
+        if (ua.indexOf(' OPR/') > 0) {
+            data.$b.addClass("Opera");
+        }
+        if (ua.indexOf('MSIE 10.') > 0) {
+            data.$b.addClass("ie10");
+        } else if ((ua.indexOf('Trident') > 0) && (navigator.userAgent.indexOf('rv:11.') > 0)) data.$b.addClass("ie11");
         
-        for (i =0; i< data.list.length; i++)
+        
+        if (this.isIPhone() || this.isAndroid())
             {
-                if (data.navigator.indexOf(data.list[i].tool) > 0) 
-                {
-                    data.$b.addClass(data.list[i].clazz);
-                    
-                    if (data.list[i].tool=='android' || data.list[i].tool == 'iphone') 
-                    {
-                        t.orientation();
-                        data.$b.addClass(data.clazz.mobile);
-                    }
-                }
-            }                
+                data.$b.addClass("mobile");
+            }                        
         
-        if (!!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/) && !this.isIpad()) {
-            data.$b.addClass("safari");
-        } 
-        else if ((data.navigator.indexOf('Trident') > 0) && (data.navigator.indexOf('rv:11.') > 0)) data.$b.addClass("ie11");                             
-                
         this.viewPort();
     };
-    this.isIpad = function() { return this.check(this.data.list[0]); };
-    this.isAndroid = function() { return this.check(this.data.list[1]); };
-    this.isIpod = function() { return this.check(this.data.list[2]); };
-    this.isIphone = function() { return this.check(this.data.list[3]); };
-    
-    this.check = function(pos)
-    {
-        if (this.data.navigator.indexOf(pos.tool) > 0) this.data.$b.addClass(pos.clazz);
-        return (this.data.$b.hasClass(pos.clazz));
-    };        
+    this.isIpad = function() {
+        var ua = navigator.userAgent.toLowerCase();
+        data.$b = $("body");
+        if (ua.indexOf("ipad") > 0) data.$b.addClass("iPad");
+        return (data.$b.hasClass("iPad"));
+    };
+    this.isIPhone = function() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.indexOf("iphone") > 0) data.$b.addClass("iPhone");
+        return (data.$b.hasClass("iPhone"));
+    };
+    this.isAndroid = function() {
+        return (data.$b.hasClass("Android"));
+    };
     this.orientation = function() {
         var or = ["orX", "orY"];
-        var data = this.data;
-        var c = [data.$b.innerHeight(), data.$b.innerWidth()];
-        (c[0] > c[1]) ? data.$b.removeClass(or[0]) : data.$b.removeClass(or[1]);
-        (c[0] > c[1]) ? data.$b.addClass(or[1]) : data.$b.addClass(or[0]);            
+        var c = [data.$b.innerHeight(), data.$b.innerWidth()]
+        if (c[0] > c[1]) {
+            data.$b.removeClass(or[0]);
+            data.$b.addClass(or[1]);
+        } else {
+            data.$b.removeClass(or[1]);
+            data.$b.addClass(or[0]);
+        }
     };
     this.viewPort = function() {
         var def = document.querySelector("meta[name=viewport]");
-        var view = '<meta name="viewport" content="width=399">';
+        var view = "<meta name='viewport' content='width=399'>";
         if (def != null) {            
             if (this.isIpad()) { 
                 def.remove();
