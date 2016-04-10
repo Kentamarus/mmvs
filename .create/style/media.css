@@ -1,4 +1,4 @@
-
+/*
 @media only all and (max-width: 1280px){
     .aboutCompany {
     	padding-left: 65px;
@@ -10,66 +10,6 @@
 		margin: 0 35px;
 		margin-top: 15px;
 	}
-}
-
-
-
-@media only all and (max-width: 770px) and (min-width: 100px){
-     .navbar-nav > li > a{ padding: 0 3px;}
-    .nav {
-        margin-left: 0;
-    }
-    .navbar .container {
-        width: 100%;
-        padding: 0;
-    }
-    .navbar-nav > li {
-        float: none;
-    }
-    .navbar-nav {
-        float: none;
-    }
-    .icons-network a {
-        margin-left: 0;
-    }
-    .navbar-toggle {
-        display: block;
-		border: 1.5px solid #16b4df;
-		margin-top: 26px;
-    }
-	.navbar-toggle span{
-		background: #16b4df;
-	}
-	.navbar-header{ float: none; }
-	footer .navbar-header{ float: left; }
-    .navbar-collapse.collapse {        
-        overflow: hidden!important;
-		height: 0;
-		width: 100%;
-    	margin: 0;
-    }
-	.navbar-nav>li {
-		display: block;
-		float: none;
-		padding: 0;
-		margin: 0;
-		line-height: 0;
-	}
-	.navbar-nav>li>a{ line-height: 50px;}
-	.will-call{ margin-right: 70px;}
-	
-	.navbar-inverse .navbar-toggle:focus,
-	.navbar-inverse .navbar-toggle:hover {
-		background-color: #16b4df;
-	}
-	.navbar-inverse .navbar-toggle {	
-		background-color: #00bff3;
-	}
-	
-	nav.fix .navbar-nav>li>a {
-		color: white;
-	}
-	
 }
 
 @media only all and (max-width: 1024px){
@@ -132,7 +72,6 @@
 	.broadcast .item4,
 	.broadcast .item5{ margin-left: 15px;}
 	
-/*	footer .navbar-nav{ max-width: 560px;}*/
 	footer .navbar-nav>li>a{ padding: 0 10px;}
 
 	.our-services .base {
@@ -143,6 +82,7 @@
 	}
 	
 }
+
 
 @media only all and (max-width: 1024px) and (min-width: 768px){
 	header .main-block {
@@ -156,6 +96,7 @@
 		float: none;
 	}
 }
+
 
 @media only all and (max-width: 768px){
 	.slide2 .container:before{ content:none; }
@@ -178,9 +119,7 @@
 		max-width: 470px;
 		margin: 0 auto;
 	}
-	.will-call {
-		margin-top: -70px;
-	}
+	
 	header .title span{
 		font-size: 44px;
 	}
@@ -413,3 +352,5 @@
     	max-width: 300px;
 	}
 }
+
+*/

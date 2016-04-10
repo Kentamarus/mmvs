@@ -4,10 +4,6 @@ $(function(){
     Site.init();     
 });
 
-//$(window).resize(function() {
-//	location.reload();	
-//});
-
 $(window).on( "orientationchange", function( event ) {
   Browser.orientation();
 });
@@ -62,7 +58,8 @@ jQuery.fn.hoverItem = function(options) {
 var Site = new function () {		
 	this.sliderOrganization = function(){
 		var show_count = 5;
-        if ($("body").width() > 1024) { show_count = 5; } 
+        if ($("body").width() > 1200) { show_count = 5; } 
+        else if ($("body").width() > 1024) { show_count = 4; } 
         else if ($("body").width() > 768)  { show_count = 3;}
         else if ($("body").width() > 639)  { show_count = 2;}
         else show_count = 1;
@@ -138,14 +135,13 @@ var Site = new function () {
 			if ($("#navbar").hasClass("in")){
 				var sub = t.parent().find(".submenu");
 				  if  (sub.length>0){ 
-				  	sub.show();
+				  	sub.css("display") == "none" ? sub.show() : sub.hide();
 					return;
-				  }
-				  sub.hide();
-				
+				  }				
 				  var obj = $("#navbar");
 				  var visible = ["0px", "330px"];
 				  obj.animate({height:visible[0]},500, function(){ obj.removeClass("in")});
+                  t.closest(".nav").find(".submenu").hide();
 			}
 		});
 		
